@@ -17,10 +17,10 @@
         "id": "s12",
         "question": "There are ______ hours in a day.",
         "choices": [
-          3,
-          5,
-          12,
-          24
+          "3",
+          "5",
+          "12",
+          "24"
         ],
         "correct_choice": 3,
         "instruction": "Select the correct answer",

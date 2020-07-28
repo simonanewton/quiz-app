@@ -3,10 +3,10 @@
     "id": "h11",
     "question": "How many states are in the United States of America?",
     "choices": [
-      40,
-      20,
-      13,
-      50
+      "40",
+      "20",
+      "13",
+      "50"
     ],
     "correct_choice": 0,
     "instruction": "Select the correct answer",
@@ -87,10 +87,10 @@
     "id": "h22",
     "question": "How many stripes does the American flag have?",
     "choices": [
-      13,
-      25,
-      43,
-      50
+      "13",
+      "25",
+      "43",
+      "50"
     ],
     "correct_choice": 0,
     "instruction": "Select the correct answer",
@@ -241,10 +241,10 @@
     "id": "h43",
     "question": "How many trips did Harriet Tubman take to lead escaped slaves north?",
     "choices": [
-      5,
-      7,
-      11,
-      19
+      "5",
+      "7",
+      "11",
+      "19"
     ],
     "correct_choice": 3,
     "instruction": "Select the correct answer",
