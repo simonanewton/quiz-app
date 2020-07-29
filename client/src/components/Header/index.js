@@ -1,27 +1,30 @@
 import React from "react";
+import ListGroup from "react-bootstrap/ListGroup";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBolt, faHome, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 function Header() {
     return (
         <header className="p-4 bg-primary d-flex justify-content-between">
             <div className="text-white d-flex align-items-center">
-                <h2>QuizApp</h2>
-                <i className="fas fa-bolt fa-2x pl-3"></i>
+                <h2 className="pr-3">QuizApp</h2>
+                <FontAwesomeIcon icon={faBolt} size="2x" />
             </div>
 
-            <ul className="list-group list-group-horizontal">
-                <a href="" className="list-group-item text-primary d-flex align-items-center" role="button">
-                    <h5 className="m-0">Home</h5>
-                    <i className="fas fa-home fa-lg pl-2"></i>
-                </a>
-                <a href="" className="list-group-item text-primary d-flex align-items-center" role="button">
-                    <h5 className="m-0">Settings</h5>
-                    <i className="fas fa-cog fa-lg pl-2"></i>
-                </a>
-                <a href="" className="list-group-item text-primary d-flex align-items-center" role="button">
-                    <h5 className="m-0">Sign In</h5>
-                    <i className="fas fa-sign-out-alt fa-lg pl-2"></i>
-                </a>
-            </ul>
+            <ListGroup horizontal>
+                <ListGroup.Item action href="" className="text-primary text-nowrap">
+                    <span className="pr-2">Home</span>
+                    <FontAwesomeIcon icon={faHome} />
+                </ListGroup.Item>
+                <ListGroup.Item action href="" className="text-primary text-nowrap">
+                    <span className="pr-2">Settings</span>
+                    <FontAwesomeIcon icon={faCog} />
+                </ListGroup.Item>
+                <ListGroup.Item action href="" className="text-primary text-nowrap">
+                    <span className="pr-2">Sign In</span>
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                </ListGroup.Item>
+            </ListGroup>
         </header>
     );
 }
