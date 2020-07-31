@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Jumbotron, Form, Button } from "react-bootstrap";
 
-function SignIn() {
+function FormLayout() {
     return (
         <Jumbotron>
             <Container>
