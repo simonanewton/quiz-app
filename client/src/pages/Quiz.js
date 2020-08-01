@@ -8,23 +8,39 @@ class Quiz extends Component {
         super(props);
         this.state = {
             score: 0,
-            timer: 60,
+            timer: 120,
             questionNum: 1,
             question: "The ______ is the star closest to Earth.",
             choices: ["Space Station", "Cloud", "Sun", "Telescope"],
+            chosen: null,
+            isChosen: false,
             isLast: false
         }
     }
 
-    renderScore() {
+    startTimer = () => {
+        this.timerInterval = setInterval(() => {
+            if (this.state.timer > 0) this.setState({ timer: this.state.timer - 1 });
+            else this.finishQuiz();
+        }, 1000);
+    }
+
+    stopTimer = () => {
+        clearInterval(this.timerInterval);
+    }
+
+    renderScore = () => {
         return <div><b>Score: {this.state.score}</b></div>;
     }
 
-    renderTimer() {
-        return <div><b>Timer: {this.state.timer}s</b></div>;
+    renderTimer = () => {
+        const minutes = Math.floor(this.state.timer / 60);
+        const seconds = Math.floor(this.state.timer % 60);
+        const color = this.state.timer <= 10 ? "red" : "black";
+        return <div><b style={{ color: color }}>Timer: {minutes}m {seconds}s</b></div>;
     }
 
-    renderChoices() {
+    renderChoices = () => {
         return this.state.choices.map((choice) => (
             <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded">
                 {choice}
@@ -32,16 +48,16 @@ class Quiz extends Component {
         ));
     }
 
-    renderNextButton() {
+    renderNextButton = () => {
         const nextQuestion = (
-            <Button variant="primary" size="lg" className="my-3" onClick={this.nextQuestion()}>
+            <Button variant="primary" size="lg" className="my-3" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
                 <span className="pr-2">Next Question</span>
                 <FontAwesomeIcon icon={faArrowAltCircleRight} />
             </Button>
         );
 
         const lastQuestion = (
-            <Button variant="primary" size="lg" className="my-3" onClick={this.finishQuiz()}>
+            <Button variant="primary" size="lg" className="my-3" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
                 <span className="pr-2">Finish Quiz</span>
                 <FontAwesomeIcon icon={faFlagCheckered} />
             </Button>
@@ -50,16 +66,24 @@ class Quiz extends Component {
         return this.state.isLast ? lastQuestion : nextQuestion;
     }
 
-    selectChoice() {
+    selectChoice = (value) => {
+        this.setState({
+            chosen: value,
+            isChosen: true
+        });
+    }
+
+    nextQuestion = () => {
         return;
     }
 
-    nextQuestion() {
+    finishQuiz = () => {
+        this.stopTimer();
         return;
     }
 
-    finishQuiz() {
-        return;
+    componentDidMount() {
+        this.startTimer();
     }
 
     render() {
@@ -73,7 +97,7 @@ class Quiz extends Component {
                     <hr />
                     <h1 className="py-2">Question {this.state.questionNum}</h1>
                     <h3 className="py-3">{this.state.question}</h3>
-                    <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={this.selectChoice()}>
+                    <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
                         {this.renderChoices()}
                     </ToggleButtonGroup>
                     <br />
