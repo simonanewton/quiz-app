@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
+import SignUp from './pages/SignUp';
 import './App.css';
 
 function App() {
@@ -19,12 +20,16 @@ function App() {
 					<Route exact path="/signin">
 						<SignIn />
 					</Route>
+					<Route exact path="/signup">
+						<SignUp />
+					</Route>
 					<Route exact path="/quizzes">
 						<QuizMenu />
 					</Route>
 					<Route exact path="/quizzes/:subject">
 						<Quiz />
 					</Route>
+					
 				</Switch>
 			</div>
 		</Router>

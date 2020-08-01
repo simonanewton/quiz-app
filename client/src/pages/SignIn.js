@@ -1,52 +1,73 @@
-import React, { useState } from "react";
-import {Button, Form, Container, Row} from "react-bootstrap";
+import React, { Component } from "react";
+import {Button, Form, Container} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const SignIn = () => {
-  //const [username, setUsername] = useState();
-  const [email, setUsername] = useState();
-  const [password, setPassword] = useState();
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log("email is " + email);
-    console.log("password is " + password);
+class SignIn extends Component {
+  // Setting the component's initial state
+  state = {
+    username: "",
+    password: ""
   };
 
-  return(
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+
+    event.preventDefault();
+      this.setState({
+      username: "",
+      password: ""
+    });
+
+    console.log(this.state)
+  };
+
+  render() { return(
     <div>
       <Container>
       <h1>Welcome to QuizApp!</h1>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
+        <Form>
+          <Form.Group controlId="formUsername">
             <Form.Control 
+              value={this.state.username}
               type="text" 
               placeholder="Enter Username" 
               name='username'
-              onChange={e => setUsername(e.target.value)}
+              onChange={this.handleInputChange}
               />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Control 
+            <Form.Control
+            value={this.state.password} 
             type="password" 
             placeholder="Password"
             name= "password"
-            onChange={e => setPassword(e.target.value)}
+            onChange={this.handleInputChange}
             />
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-            <p className="signUpLink">Don't have an account? <Link to="SignUp">Sign Up</Link></p>
+            <p className="signUpLink">Don't have an account? <Link to="/signup">Sign Up</Link></p>
             <p className="forgotPasswordLink">Forgot Password</p>
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
             Submit
           </Button>
         </Form>
       </Container>
     </div>
   )
+  }
 };
 
 export default SignIn;
