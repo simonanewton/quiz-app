@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {Button, Form, Container, Row} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 const SignIn = () => {
@@ -36,7 +37,7 @@ const SignIn = () => {
             />
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-            <p className="signUpLink">Don't have an account? Sign Up</p>
+            <p className="signUpLink">Don't have an account? <Link to="SignUp">Sign Up</Link></p>
             <p className="forgotPasswordLink">Forgot Password</p>
           </Form.Group>
           <Button variant="primary" type="submit">
