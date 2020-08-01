@@ -24,10 +24,10 @@ class SignIn extends Component {
   handleFormSubmit = event => {
 
     event.preventDefault();
-      this.setState({
-      username: "",
-      password: ""
-    });
+    // this.setState({
+    //   username: "",
+    //   password: ""
+    // });
 
     console.log(this.state)
   };
