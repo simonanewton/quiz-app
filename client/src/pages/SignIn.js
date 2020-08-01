@@ -1,29 +1,25 @@
-import React from "react";
-import { Container, Jumbotron, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import {Button, FormGroup, FormControl, Form} from "react-bootstrap";
 
-function SignIn() {
-    return (
-        <Jumbotron fluid>
-            <Container>
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                    <p>Don't have an account? Sign Up</p>
-                </Form>
-            </Container>
-        </Jumbotron>
-    );
-}
+const Signup = () => {
+  //const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-export default SignIn;
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("email is " + email);
+    console.log("password is " + password);
+  };
+
+  return(
+    <div>
+      <Form onSubmit={handleSubmit}>
+        
+      </Form>
+    </div>
+  )
+};
+
+export default Signup;
