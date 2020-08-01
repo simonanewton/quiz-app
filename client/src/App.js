@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import QuizMenu from './pages/QuizMenu';
+import Quiz from './pages/Quiz';
 import './App.css';
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
 					</Route>
 					<Route exact path="/quizzes">
 						<QuizMenu />
+					</Route>
+					<Route exact path="/quizzes/:subject">
+						<Quiz />
 					</Route>
 				</Switch>
 			</div>
