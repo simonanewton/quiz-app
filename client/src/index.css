@@ -24,3 +24,7 @@ code {
   background-color: rgb(224, 189, 122);
   border: 1px solid rgb(224, 189, 122);
 }
+
+.pr-2 {
+  color: white !important;
+}

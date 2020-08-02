@@ -43,7 +43,7 @@ class Quiz extends Component {
 
     renderChoices = () => {
         return this.state.choices.map((choice) => (
-            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded">
+            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
                 {choice}
             </ToggleButton>
         ));
@@ -51,14 +51,14 @@ class Quiz extends Component {
 
     renderNextButton = () => {
         const nextQuestion = (
-            <Button variant="primary" size="lg" className="my-3" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
+            <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
                 <span className="pr-2">Next Question</span>
                 <FontAwesomeIcon icon={faArrowAltCircleRight} />
             </Button>
         );
 
         const lastQuestion = (
-            <Button variant="primary" size="lg" className="my-3" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
+            <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
                 <span className="pr-2">Finish Quiz</span>
                 <FontAwesomeIcon icon={faFlagCheckered} />
             </Button>
@@ -98,7 +98,7 @@ class Quiz extends Component {
                     <hr />
                     <h1 className="py-2">Question {this.state.questionNum}</h1>
                     <h3 className="py-3">{this.state.question}</h3>
-                    <ToggleButtonGroup vertical className="btn" name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
+                    <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
                         {this.renderChoices()}
                     </ToggleButtonGroup>
                     <br />
