@@ -9,8 +9,9 @@ class Leaderboard extends React.Component {
     render() {
         return (
             <div>
-                <BootstrapTable data={}>
-                    <TableHeaderColumn isKey dataField="#">Score</TableHeaderColumn>
+                <BootstrapTable>
+                    <TableHeaderColumn isKey dataField="#">Overall Score</TableHeaderColumn>
+                    <TableHeaderColumn>Username</TableHeaderColumn>
                 </BootstrapTable>
             </div>
         )
