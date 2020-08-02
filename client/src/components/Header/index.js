@@ -14,15 +14,15 @@ function Header() {
 
             <ListGroup horizontal className="ml-auto">
                 <ListGroup.Item action href="/" className="text-nowrap">
-                    <span className="pr-2">Home</span>
+                    <span className="pr-2 menuBtn">Home</span>
                     <FontAwesomeIcon icon={faHome} className="icons" />
                 </ListGroup.Item>
                 <ListGroup.Item action href="/settings" className="text-nowrap">
-                    <span className="pr-2">Settings</span>
+                    <span className="pr-2 menuBtn">Settings</span>
                     <FontAwesomeIcon icon={faCog} className="icons" />
                 </ListGroup.Item>
                 <ListGroup.Item action href="/signin" className="text-nowrap">
-                    <span className="pr-2">Sign In</span>
+                    <span className="pr-2 menuBtn">Sign In</span>
                     <FontAwesomeIcon icon={faSignOutAlt} className="icons" />
                 </ListGroup.Item>
             </ListGroup>

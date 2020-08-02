@@ -52,14 +52,14 @@ class Quiz extends Component {
     renderNextButton = () => {
         const nextQuestion = (
             <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
-                <span className="pr-2">Next Question</span>
+                <span className="pr-2 quizBtn">Next Question</span>
                 <FontAwesomeIcon icon={faArrowAltCircleRight} />
             </Button>
         );
 
         const lastQuestion = (
             <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
-                <span className="pr-2">Finish Quiz</span>
+                <span className="pr-2 quizBtn">Finish Quiz</span>
                 <FontAwesomeIcon icon={faFlagCheckered} />
             </Button>
         );

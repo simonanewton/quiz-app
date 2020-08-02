@@ -27,6 +27,9 @@ function App() {
 					<Route exact path="/quizzes/:subject">
 						<Quiz />
 					</Route>
+					<Route exact path="/leaderboard">
+						
+					</Route>
 				</Switch>
 			</div>
 		</Router>
