@@ -11,3 +11,7 @@ body {
     background-image: url('./assets/background-pattern.png');
     font-family: 'Mulish', sans-serif;
 }
+
+.pr-2 {
+    color: orange;
+}
