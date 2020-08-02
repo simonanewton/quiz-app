@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Jumbotron, ToggleButtonGroup, ToggleButton, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
+import '../index.css';
 
 class Quiz extends Component {
     constructor(props) {
@@ -42,7 +43,7 @@ class Quiz extends Component {
 
     renderChoices = () => {
         return this.state.choices.map((choice) => (
-            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded">
+            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
                 {choice}
             </ToggleButton>
         ));
@@ -50,15 +51,15 @@ class Quiz extends Component {
 
     renderNextButton = () => {
         const nextQuestion = (
-            <Button variant="primary" size="lg" className="my-3" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
-                <span className="pr-2">Next Question</span>
+            <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
+                <span className="pr-2 quizBtn">Next Question</span>
                 <FontAwesomeIcon icon={faArrowAltCircleRight} />
             </Button>
         );
 
         const lastQuestion = (
-            <Button variant="primary" size="lg" className="my-3" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
-                <span className="pr-2">Finish Quiz</span>
+            <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
+                <span className="pr-2 quizBtn">Finish Quiz</span>
                 <FontAwesomeIcon icon={faFlagCheckered} />
             </Button>
         );
@@ -89,7 +90,7 @@ class Quiz extends Component {
     render() {
         return (
             <Container>
-                <Jumbotron className="px-5 py-4 m-0 text-center">
+                <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
                     <div className="py-2 d-flex justify-content-between" style={{ fontSize: "20px" }}>
                         {this.renderScore()}
                         {this.renderTimer()}
