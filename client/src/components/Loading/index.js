@@ -1,5 +1,6 @@
 import React from "react";
 import LoadingScreen from 'react-loading-screen';
+import { faBolt } from '@fortawesome/free-solid-svg-icons';
 // import "./index.css";
 
 function Loading() {
@@ -8,9 +9,9 @@ function Loading() {
             loading={true}
             bgColor='white'
             spinnerColor='orange'
-            logoSrc='./assets/icon.png'
+            logoSrc={faBolt}
             textColor='orange'
-            text='example'
+            text='Get your quiz on!'
         >
 
         </LoadingScreen>
