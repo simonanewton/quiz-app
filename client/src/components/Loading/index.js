@@ -9,4 +9,4 @@ function Loading() {
     );
 }
 
-export default HomeCard;
+export default Loading;
