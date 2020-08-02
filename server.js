@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(require("./routes"));
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizAppDB");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizAppDB");
 
 app.listen(PORT, () => {
     console.log(`Server is listening on http://localhost:${PORT}`);
