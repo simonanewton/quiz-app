@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Leaderboard from './pages/Leaderboard';
+import LeaderboardMenu from './pages/LeaderboardMenu';
 import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
 import Loading from './components/Loading/index'
@@ -29,7 +30,7 @@ function App() {
 						<Quiz />
 					</Route>
 					<Route exact path="/leaderboard">
-						<Leaderboard />
+						<LeaderboardMenu />
 					</Route>
 				</Switch>
 			</div>
