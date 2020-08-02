@@ -20,6 +20,12 @@ class LeaderboardMenu extends React.Component {
         ));
     }
 
+    selectChoice = (value) => {
+        this.setState({
+            chosen: value,
+            isChosen: true
+        });
+    }
 
     render() {
         return (
