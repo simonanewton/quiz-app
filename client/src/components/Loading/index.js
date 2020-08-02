@@ -3,7 +3,7 @@ import "./index.css";
 
 function Loading() {
     return (
-        <div id="loader"><img src=".../assets/icon.png" width="100px" /></div>
+        <div id="loader"><img src="./assets/icon.png" width="100px" /></div>
     );
 }
 

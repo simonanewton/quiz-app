@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
+import Loading from './components/Loading/index'
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 		<Router>
 			<div className="vh-100 d-flex flex-column">
 				<Header />
+				<Loading />
 				<Switch>
 					<Route exact path="/">
 						<Home />
