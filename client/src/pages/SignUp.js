@@ -29,15 +29,19 @@ class SignUp extends Component {
     };
 
     renderSignUpType (){
+        const selection = this.state.typeOfAccount;
+
         const studentSettings = (<p>Student</p>);
 
         const teacherSettings = (<p>Teacher</p>);
 
-        if(!this.state.typeOfAccount){
+        if(!selection){
             return
         }
+        
+        console.log(this.state.typeOfAccount)
 
-        return this.state.typeOfAccount === "student" ? studentSettings : teacherSettings;
+        return selection === "student" ? studentSettings : teacherSettings;
     }
 
     handleOptionChange = changeEvent => {
@@ -70,7 +74,6 @@ class SignUp extends Component {
                             value={this.state.name}
                             name="name"
                             onChange={this.handleInputChange}
-                            required
                         />
                     </Col>
                 </Form.Group>
@@ -99,54 +102,55 @@ class SignUp extends Component {
                             type="text" 
                             placeholder="Username" 
                             value={this.state.username}
-                            name="name"
+                            name="username"
                             onChange={this.handleInputChange}
                         />
                     </Col>
                 </Form.Group>
 
-                <Form.Group as={Row} controlId="formHorizontalPassword">
+                <Form.Group as={Row} controlId="formPassword">
                     <Form.Label column sm={2}>
                     Password
                     </Form.Label>
                     <Col sm={10}>
-                    <Form.Control type="password" placeholder="Password" />
+                        <Form.Control 
+                            type="password" 
+                            placeholder="Password" 
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.handleInputChange}
+                        />
                     </Col>
                 </Form.Group>
                 <fieldset>
                     <Form.Group as={Row}>
                     <Form.Label as="legend" column sm={2}>
-                        Radios
+                        Type of Account
                     </Form.Label>
                     <Col sm={10}>
                         <Form.Check
                         type="radio"
-                        label="first radio"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios1"
+                        label="Teacher"
+                        name="typeOfAccount"
+                        id="Teacher"
+                        value="teacher"
+                        checked={this.state.typeOfAccount === "teacher"}
+                        onChange={this.handleOptionChange}
                         />
                         <Form.Check
                         type="radio"
-                        label="second radio"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios2"
-                        />
-                        <Form.Check
-                        type="radio"
-                        label="third radio"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios3"
+                        label="Student"
+                        name="typeOfAccount"
+                        id="Student"
+                        value="student"
+                        checked={this.state.typeOfAccount === "student"}
+                        onChange={this.handleOptionChange}
                         />
                     </Col>
                     </Form.Group>
                 </fieldset>
-                <Form.Group as={Row} controlId="formHorizontalCheck">
-                    <Col sm={{ span: 10, offset: 2 }}>
-                    <Form.Check label="Remember me" />
-                    </Col>
-                </Form.Group>
                 {this.renderSignUpType()}
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
                     Submit
                 </Button>
             </Form>
