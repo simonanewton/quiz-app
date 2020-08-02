@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Jumbotron, ToggleButtonGroup, ToggleButton, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
+import '../index.css';
 
 class Quiz extends Component {
     constructor(props) {
@@ -89,7 +90,7 @@ class Quiz extends Component {
     render() {
         return (
             <Container>
-                <Jumbotron className="px-5 py-4 m-0 text-center">
+                <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
                     <div className="py-2 d-flex justify-content-between" style={{ fontSize: "20px" }}>
                         {this.renderScore()}
                         {this.renderTimer()}
@@ -97,7 +98,7 @@ class Quiz extends Component {
                     <hr />
                     <h1 className="py-2">Question {this.state.questionNum}</h1>
                     <h3 className="py-3">{this.state.question}</h3>
-                    <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
+                    <ToggleButtonGroup vertical className="btn" name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
                         {this.renderChoices()}
                     </ToggleButtonGroup>
                     <br />
