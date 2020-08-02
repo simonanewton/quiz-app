@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
-import Leaderboard from './pages/Leaderboard';
 import LeaderboardMenu from './pages/LeaderboardMenu';
 import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
@@ -31,9 +30,6 @@ function App() {
 					</Route>
 					<Route exact path="/leaderboard">
 						<LeaderboardMenu />
-					</Route>
-					<Route exact path="/leaderboard/:type">
-						<Leaderboard />
 					</Route>
 				</Switch>
 			</div>

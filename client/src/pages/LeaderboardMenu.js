@@ -2,23 +2,34 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Block from "../components/Block";
 import { faCalculator, faFlask, faPencilAlt, faBook, faMedal } from '@fortawesome/free-solid-svg-icons';
+import { Jumbotron, ToggleButtonGroup, ToggleButton, Button } from 'react-bootstrap';
 
-function LeaderboardMenu() {
-    return (
-        <Container>
-            <Row className="d-flex justify-content-center">
-                <Block link="/leaderboard/alltime" name="Overall" icon={faMedal} />
-                <Block link="/leaderboard/science" name="Science" icon={faFlask} />
-            </Row>
-            <Row className="d-flex justify-content-center">
-                <Block link="/leaderboard/english" name="English" icon={faPencilAlt} />
-                <Block link="/leaderboard/history" name="History" icon={faBook} />
-            </Row>
-            <Row className="d-flex justify-content-center">
-                <Block link="/leaderboard/math" name="Math" icon={faCalculator} />
-            </Row>
-        </Container>
-    );
+class LeaderboardMenu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            choices: ['Overall', 'Math', 'Science', 'English', 'History']
+        }
+    }
+    
+    renderChoices = () => {
+        return this.state.choices.map((choice) => (
+            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
+                {choice}
+            </ToggleButton>
+        ));
+    }
+
+
+    render() {
+        return (
+            <div>
+                <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
+                        {this.renderChoices()}
+                </ToggleButtonGroup>
+            </div>
+        )
+    }
 }
 
 export default LeaderboardMenu;
