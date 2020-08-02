@@ -6,11 +6,18 @@ import { faArrowAltCircleRight, faFlagCheckered } from '@fortawesome/free-solid-
 import '../index.css';
 
 class Leaderboard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
+    
     render() {
         return (
             <div>
                 <BootstrapTable>
-                    <TableHeaderColumn isKey dataField="#">Overall Score</TableHeaderColumn>
+                    <TableHeaderColumn isKey dataField="#">Score</TableHeaderColumn>
                     <TableHeaderColumn>Username</TableHeaderColumn>
                 </BootstrapTable>
             </div>

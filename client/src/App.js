@@ -32,6 +32,9 @@ function App() {
 					<Route exact path="/leaderboard">
 						<LeaderboardMenu />
 					</Route>
+					<Route exact path="/leaderboard/:type">
+						<Leaderboard />
+					</Route>
 				</Switch>
 			</div>
 		</Router>
