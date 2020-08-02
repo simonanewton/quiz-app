@@ -2,3 +2,11 @@
     background-color: #fff !important;
     color: #007bff !important;
 }
+
+nav {
+    background-color: orange;
+}
+
+body {
+    background-image: url('./assets/background-pattern.png');
+}

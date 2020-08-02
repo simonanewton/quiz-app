@@ -6,7 +6,7 @@ import "./index.css";
 
 function Header() {
     return (
-        <Navbar bg="primary" variant="light" expand="lg" className="p-4">
+        <Navbar variant="light" expand="lg" className="p-4">
             <Navbar.Brand href="/" className="text-white d-flex align-items-center">
                 <h2 className="pr-3">QuizApp</h2>
                 <FontAwesomeIcon icon={faBolt} size="2x" />
