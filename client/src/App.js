@@ -13,7 +13,7 @@ function App() {
 		<Router>
 			<div className="vh-100 d-flex flex-column">
 				<Header />
-				<Loading />
+				{/* <Loading /> */}
 				<Switch>
 					<Route exact path="/">
 						<Home />
