@@ -1,5 +1,5 @@
 import React from "react";
-import { ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
+import { TabContainer, TabContent, TabPane } from 'react-bootstrap';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -11,9 +11,12 @@ class LeaderboardMenu extends React.Component {
     
     renderChoices = () => {
         return this.state.choices.map((choice) => (
-            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
-                {choice}
-            </ToggleButton>
+            
+            
+            
+            // <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
+            //     {choice}
+            // </ToggleButton>
         ));
     }
 
