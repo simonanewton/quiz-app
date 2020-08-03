@@ -8,8 +8,7 @@ function Header() {
     return (
         <Navbar variant="light" expand="lg" className="p-4">
             <Navbar.Brand href="/" className="text-white d-flex align-items-center">
-                <h2 className="pr-3">QuizApp</h2>
-                <FontAwesomeIcon icon={faBolt} size="2x" />
+                <img src={require('./assets/quizzapplogo-white.png')} width="250px" />
             </Navbar.Brand>
 
             <ListGroup horizontal className="ml-auto">

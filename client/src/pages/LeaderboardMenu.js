@@ -15,7 +15,7 @@ class LeaderboardMenu extends React.Component {
         return (
             <TabContainer id="left-tabs" defaultActiveKey="first">
                   <Row>
-                    <Col sm={3}>
+                    <Col sm="3">
                         <Nav variant="pills" className="flex-column">
                             <NavItem>
                                 <NavLink eventKey="first">Overall</NavLink>
@@ -34,7 +34,7 @@ class LeaderboardMenu extends React.Component {
                             </NavItem>
                         </Nav>
                     </Col>
-                    <Col sm={9}>
+                    <Col sm="9">
                         <TabContent>
                             <TabPane eventKey="first">
                                 fjdsklfjdsklfjdskl
