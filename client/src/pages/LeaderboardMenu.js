@@ -1,5 +1,5 @@
 import React from "react";
-import { TabContainer, TabContent, TabPane, Row, Nav, Col, Tab, ToggleButtonGroup } from 'react-bootstrap';
+import { TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, Tab, ToggleButtonGroup } from 'react-bootstrap';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -9,35 +9,53 @@ class LeaderboardMenu extends React.Component {
         }
     }
     
+    // this.state.choices.map((choice) =>
+
     renderChoices = () => {
-        return this.state.choices.map((choice) => (
-            <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        return (
+            <TabContainer id="left-tabs" defaultActiveKey="first">
                   <Row>
                     <Col sm={3}>
                         <Nav variant="pills" className="flex-column">
-                            <Nav.Item>
-                                <Nav.Link eventKey="first">{choice}</Nav.Link>
-                            </Nav.Item>
+                            <NavItem>
+                                <NavLink eventKey="first">Overall</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink eventKey="second">Math</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink eventKey="third">Science</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink eventKey="fourth">English</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink eventKey="fifth">History</NavLink>
+                            </NavItem>
                         </Nav>
                     </Col>
-                    {/* <Col sm={9}>
-                    <Tab.Content>
-                        <Tab.Pane eventKey="first">
-                        
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="second">
-                        
-                        </Tab.Pane>
-                    </Tab.Content>
-                    </Col> */}
+                    <Col sm={9}>
+                        <TabContent>
+                            <TabPane eventKey="first">
+                                fjdsklfjdsklfjdskl
+                            </TabPane>
+                            <TabPane eventKey="second">
+                                blah blah
+                            </TabPane>
+                            <TabPane eventKey="third">
+                                cool
+                            </TabPane>
+                            <TabPane eventKey="fourth">
+                                test
+                            </TabPane>
+                            <TabPane eventKey="fifth">
+                                testing
+                            </TabPane>
+                        </TabContent>
+                    </Col>
                 </Row>
-            </Tab.Container>
-            
-            
-            // <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
-            //     {choice}
-            // </ToggleButton>
-        ));
+            </TabContainer>
+        );
     }
 
     selectChoice = (value) => {
