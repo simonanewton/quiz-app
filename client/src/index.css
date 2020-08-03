@@ -28,3 +28,7 @@ code {
 .quizBtn {
   color: white !important;
 }
+
+#left-tabs {
+  background-color: orange;
+}

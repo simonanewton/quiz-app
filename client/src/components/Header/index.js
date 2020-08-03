@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt, faHome, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import "./index.css";
 
 function Header() {

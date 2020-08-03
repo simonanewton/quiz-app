@@ -1,5 +1,6 @@
 import React from "react";
-import { TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, Tab, ToggleButtonGroup } from 'react-bootstrap';
+import { TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
+import '../index.css';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
