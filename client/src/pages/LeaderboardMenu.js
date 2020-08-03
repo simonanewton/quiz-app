@@ -30,7 +30,7 @@ class LeaderboardMenu extends React.Component {
     render() {
         return (
             <div>
-                <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
+                <ToggleButtonGroup vertical name="choices" type="radio" className="w-25" onChange={(event) => this.selectChoice(event)}>
                         {this.renderChoices()}
                 </ToggleButtonGroup>
             </div>
