@@ -1,8 +1,5 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
-import Block from "../components/Block";
-import { faCalculator, faFlask, faPencilAlt, faBook, faMedal } from '@fortawesome/free-solid-svg-icons';
-import { Jumbotron, ToggleButtonGroup, ToggleButton, Button } from 'react-bootstrap';
+import { ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
