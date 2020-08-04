@@ -52,7 +52,7 @@ class Quiz extends Component {
 
     render() {
         return (
-            <Container>
+            <Container className="my-auto">
                 <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
                     <div className="py-2 d-flex justify-content-between" style={{ fontSize: "20px" }}>
                         {this.renderScore()}

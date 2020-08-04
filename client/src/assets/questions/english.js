@@ -33,7 +33,7 @@ const levelOne = [
 		"choices": [
 			"June 8 1998",
 			"June 8 1998,",
-			"une 8, 1998",
+			"June 8, 1998",
 			"June, 8 1998"
 		],
 		"correct_choice": 0,

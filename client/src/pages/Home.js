@@ -5,7 +5,7 @@ import { faBookOpen, faMedal } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
     return (
-        <Container className="d-flex justify-content-center">
+        <Container className="d-flex my-auto justify-content-center">
             <Block link="/quizzes" name="Quizzes" icon={faBookOpen} />
             <Block link="/leaderboard" name="Leaderboard" icon={faMedal} />
         </Container>
