@@ -32,13 +32,9 @@ function App() {
 					<Route exact path="/quizzes/:subject">
 						<Quiz />
 					</Route>
-<<<<<<< HEAD
-					
-=======
 					<Route exact path="/leaderboard">
 						<LeaderboardMenu />
 					</Route>
->>>>>>> 2c00365063674b5511ee9320e67fa1419285a0d4
 				</Switch>
 			</div>
 		</Router>
