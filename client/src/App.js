@@ -6,6 +6,7 @@ import SignIn from "./pages/SignIn";
 import LeaderboardMenu from './pages/LeaderboardMenu';
 import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
+import SignUp from './pages/SignUp';
 import Loading from './components/Loading/index'
 import './App.css';
 
@@ -21,6 +22,9 @@ function App() {
 					</Route>
 					<Route exact path="/signin">
 						<SignIn />
+					</Route>
+					<Route exact path="/signup">
+						<SignUp />
 					</Route>
 					<Route exact path="/quizzes">
 						<QuizMenu />
