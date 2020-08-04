@@ -11,10 +11,13 @@ code {
 }
 
 .jumbo {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
-.btn {
+.btn,
+.btn.active,
+.btn:disabled {
+  color: white;
   background-color: orange;
   border: 1px solid orange;
   transition: ease-in-out .25s;
@@ -25,6 +28,25 @@ code {
   border: 1px solid rgb(224, 189, 122);
 }
 
+.btn.active {
+  color: orange !important;
+  border-color: orange !important;
+}
+
+.btn:active,
+.btn:focus {
+  background-color: darkorange !important;
+  border-color: darkorange !important;
+}
+
+.btn.focus {
+  box-shadow: none;
+}
+
 .quizBtn {
   color: white !important;
+}
+
+#left-tabs {
+  background-color: orange;
 }
