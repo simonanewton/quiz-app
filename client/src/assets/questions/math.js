@@ -1,4 +1,4 @@
-[
+const levelOne = [
     {
         "id": "m11",
         "question": "Which lists the numbers in order from least to greatest?",
@@ -68,8 +68,11 @@
         "instruction": "Select the correct answer",
         "category": "Math",
         "difficulty": 1
-      },
-      {
+      }
+];
+
+const levelTwo = [
+    {
         "id": "m21",
         "question": "Which answer choice shows the word form for 817?",
         "choices": [
@@ -138,8 +141,11 @@
         "instruction": "Select the correct answer",
         "category": "Math",
         "difficulty": 2
-      },
-      {
+      }
+];
+
+const levelThree = [
+    {
         "id": "m31",
         "question": "125 − 72 = ?",
         "choices": [
@@ -208,8 +214,11 @@
         "instruction": "Select the correct answer",
         "category": "Math",
         "difficulty": 3
-      },
-      {
+      }
+];
+
+const levelFour = [
+    {
         "id": "m41",
         "question": "Which equals 23 kilograms?",
         "choices": [
@@ -278,8 +287,11 @@
         "instruction": "Select the correct answer",
         "category": "Math",
         "difficulty": 4
-      },
-      {
+      }
+];
+
+const levelFive = [
+    {
         "id": "m51",
         "question": "Find the product. 23 × 153 = ?",
         "choices": [
@@ -349,4 +361,12 @@
         "category": "Math",
         "difficulty": 5
       }
-]
+];
+
+module.exports = {
+	levelOne: levelOne,
+	levelTwo: levelTwo,
+	levelThree: levelThree,
+	levelFour: levelFour,
+	levelFive: levelFive
+}
