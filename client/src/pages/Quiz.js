@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Jumbotron, ToggleButtonGroup, ToggleButton, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
+import { Container, Jumbotron } from 'react-bootstrap';
+import QuizQuestions from '../components/QuizQuestions';
+import Questions from '../assets/questions/english'
 import '../index.css';
 
 class Quiz extends Component {
@@ -10,13 +10,14 @@ class Quiz extends Component {
         this.state = {
             score: 0,
             timer: 120,
-            questionNum: 1,
-            question: "The ______ is the star closest to Earth.",
-            choices: ["Space Station", "Cloud", "Sun", "Telescope"],
-            chosen: null,
-            isChosen: false,
-            isLast: false
+            level: "one",
+            subject: "english",
+            questions: Questions.levelOne
         }
+    }
+
+    componentDidMount() {
+        this.startTimer();
     }
 
     startTimer = () => {
@@ -26,8 +27,16 @@ class Quiz extends Component {
         }, 1000);
     }
 
+    finishQuiz = () => {
+        this.stopTimer();
+    }
+
     stopTimer = () => {
         clearInterval(this.timerInterval);
+    }
+
+    updateScore = () => {
+        this.setState({ score: this.state.score + 10 });
     }
 
     renderScore = () => {
@@ -41,52 +50,6 @@ class Quiz extends Component {
         return <div><b style={{ color: color }}>Timer: {minutes}m {seconds}s</b></div>;
     }
 
-    renderChoices = () => {
-        return this.state.choices.map((choice) => (
-            <ToggleButton type="radio" value={choice} key={choice} variant="primary" size="lg" block className="my-3 rounded btn">
-                {choice}
-            </ToggleButton>
-        ));
-    }
-
-    renderNextButton = () => {
-        const nextQuestion = (
-            <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.nextQuestion}>
-                <span className="pr-2 quizBtn">Next Question</span>
-                <FontAwesomeIcon icon={faArrowAltCircleRight} />
-            </Button>
-        );
-
-        const lastQuestion = (
-            <Button variant="primary" size="lg" className="my-3 btn" disabled={!this.state.isChosen} onClick={this.finishQuiz}>
-                <span className="pr-2 quizBtn">Finish Quiz</span>
-                <FontAwesomeIcon icon={faFlagCheckered} />
-            </Button>
-        );
-
-        return this.state.isLast ? lastQuestion : nextQuestion;
-    }
-
-    selectChoice = (value) => {
-        this.setState({
-            chosen: value,
-            isChosen: true
-        });
-    }
-
-    nextQuestion = () => {
-        return;
-    }
-
-    finishQuiz = () => {
-        this.stopTimer();
-        return;
-    }
-
-    componentDidMount() {
-        this.startTimer();
-    }
-
     render() {
         return (
             <Container>
@@ -96,14 +59,7 @@ class Quiz extends Component {
                         {this.renderTimer()}
                     </div>
                     <hr />
-                    <h1 className="py-2">Question {this.state.questionNum}</h1>
-                    <h3 className="py-3">{this.state.question}</h3>
-                    <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
-                        {this.renderChoices()}
-                    </ToggleButtonGroup>
-                    <br />
-                    <hr />
-                    {this.renderNextButton()}
+                    <QuizQuestions questions={this.state.questions} updateScore={this.updateScore} finishQuiz={this.finishQuiz} />
                 </Jumbotron>
             </Container>
         );
