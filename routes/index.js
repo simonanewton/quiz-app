@@ -1,7 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
 const api = require("./api");
-const Score = require('../models/score');
 
 router.use("/api", api);
 
