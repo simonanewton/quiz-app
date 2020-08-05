@@ -8,6 +8,7 @@ const userSchema = new Schema ({
     username: { type: String, required: true },
     emailAddress: { type: String, required: true, unique: true },
     password: { type: String, required: true, bcrypt: true },
+    // type of account
 })
 
 const User = mongoose.model('User', userSchema);
