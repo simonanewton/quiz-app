@@ -16,7 +16,7 @@ class QuizQuestions extends Component {
     }
 
     renderChoices = () => {
-        return this.props.questions[this.state.questionIndex].choices.map((choice) => (
+        return this.props.questions[this.state.questionIndex] && this.props.questions[this.state.questionIndex].choices.map((choice) => (
             <ToggleButton type="radio" value={choice} key={choice} size="lg" block className="my-3 rounded">
                 {choice}
             </ToggleButton>
@@ -64,7 +64,7 @@ class QuizQuestions extends Component {
         return (
             <div>
                 <h1 className="py-2">Question {this.state.questionIndex + 1}</h1>
-                <h3 className="py-3">{this.props.questions[this.state.questionIndex].question}</h3>
+                <h3 className="py-3">{this.props.questions[this.state.questionIndex] && this.props.questions[this.state.questionIndex].question}</h3>
                 <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
                     {this.renderChoices()}
                 </ToggleButtonGroup>
