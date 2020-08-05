@@ -1,6 +1,7 @@
 import React from "react";
 import { TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
 import '../index.css';
+import LeaderboardTable from '../components/LeaderboardTable/index';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class LeaderboardMenu extends React.Component {
                     <Col sm="9">
                         <TabContent>
                             <TabPane eventKey="first">
-                                fjdsklfjdsklfjdskl
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="second">
                                 blah blah

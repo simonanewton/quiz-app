@@ -1,10 +1,14 @@
 import React from "react";
-import "./index.css";
+import { TableHeaderColumn, BootstrapTable } from 'react-bootstrap-table';
 
-function Table () {
-    return (
-        
-    )
+class LeaderboardTable extends React.Component {
+    render() {
+        return (
+            <BootstrapTable>
+                <TableHeaderColumn>Username</TableHeaderColumn>
+                <TableHeaderColumn isKey dataField="id">Score</TableHeaderColumn>
+            </BootstrapTable>
+    )};
 }
 
-export default Table;
+export default LeaderboardTable;
