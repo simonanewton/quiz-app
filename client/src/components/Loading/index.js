@@ -4,20 +4,22 @@ import { faBolt } from '@fortawesome/free-solid-svg-icons';
 // import "./index.css";
 
 
-function Loading() {
-    return (
-        <LoadingScreen
-            loading={true}
-            bgColor='white'
-            spinnerColor='orange'
-            logoSrc={faBolt}
-            textColor='orange'
-            text='Get your quiz on!'
-            
-        >
+class Loading extends React.Component {
+    render() {    
+        return (
+            <LoadingScreen
+                loading={true}
+                bgColor='white'
+                spinnerColor='orange'
+                logoSrc={faBolt}
+                textColor='orange'
+                text='Get your quiz on!'
+                
+            >
 
-        </LoadingScreen>
-    );
+            </LoadingScreen>
+        );
+    }
 }
 
 export default Loading;
