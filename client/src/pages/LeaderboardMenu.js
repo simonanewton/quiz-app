@@ -42,16 +42,16 @@ class LeaderboardMenu extends React.Component {
                                 <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="second">
-                                blah blah
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="third">
-                                cool
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="fourth">
-                                test
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="fifth">
-                                testing
+                                <LeaderboardTable/>
                             </TabPane>
                         </TabContent>
                     </Col>
