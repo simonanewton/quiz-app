@@ -15,7 +15,7 @@ class LeaderboardMenu extends React.Component {
     renderChoices = () => {
         return (
             <TabContainer id="left-tabs" defaultActiveKey="first">
-                  <Row>
+                  <Row className="col-sm-12">
                     <Col sm="3">
                         <Nav variant="pills" className="flex-column">
                             <NavItem>
