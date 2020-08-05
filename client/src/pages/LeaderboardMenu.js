@@ -1,6 +1,7 @@
 import React from "react";
 import { TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
 import '../index.css';
+import LeaderboardTable from '../components/LeaderboardTable/index';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -15,42 +16,42 @@ class LeaderboardMenu extends React.Component {
     renderChoices = () => {
         return (
             <TabContainer id="left-tabs" defaultActiveKey="first">
-                  <Row>
+                  <Row className="col-sm-12">
                     <Col sm="3">
                         <Nav variant="pills" className="flex-column">
                             <NavItem>
-                                <NavLink eventKey="first">Overall</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="second">Math</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="third">Science</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="fourth">English</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="fifth">History</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>
                     <Col sm="9">
                         <TabContent>
                             <TabPane eventKey="first">
-                                fjdsklfjdsklfjdskl
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="second">
-                                blah blah
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="third">
-                                cool
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="fourth">
-                                test
+                                <LeaderboardTable/>
                             </TabPane>
                             <TabPane eventKey="fifth">
-                                testing
+                                <LeaderboardTable/>
                             </TabPane>
                         </TabContent>
                     </Col>
@@ -69,7 +70,7 @@ class LeaderboardMenu extends React.Component {
     render() {
         return (
             <div>
-                <ToggleButtonGroup vertical name="choices" type="radio" className="w-25" onChange={(event) => this.selectChoice(event)}>
+                <ToggleButtonGroup vertical name="choices" type="radio" className="w-100" onChange={(event) => this.selectChoice(event)}>
                         {this.renderChoices()}
                 </ToggleButtonGroup>
             </div>

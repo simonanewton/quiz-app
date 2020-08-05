@@ -47,6 +47,27 @@ code {
   color: white !important;
 }
 
-#left-tabs {
+.leaderboard-btn,
+.leaderboard-btn.active,
+.leaderboard-btn:disabled {
+  margin: 10px;
+  color: white;
   background-color: orange;
+  border: 1px solid orange;
+  transition: ease-in-out .25s;
+}
+
+.leaderboard-btn:hover {
+  background-color: rgb(224, 189, 122);
+  border: 1px solid rgb(224, 189, 122);
+  color: white;
+}
+
+.leaderboard-btn.active {
+  color: orange !important;
+  border-color: orange !important;
+}
+
+.leaderboard-btn.focus {
+  box-shadow: none;
 }
