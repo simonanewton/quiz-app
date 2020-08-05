@@ -47,20 +47,27 @@ code {
   color: white !important;
 }
 
-.leaderboard-btn {
-  background-color: orange;
-  color: white;
-  text-decoration: none;
+.leaderboard-btn,
+.leaderboard-btn.active,
+.leaderboard-btn:disabled {
   margin: 10px;
-}
-
-.leaderboard-btn:active,
-.leaderboard-btn:focus {
-  background-color: darkorange !important;
-  color: white !important;
+  color: white;
+  background-color: orange;
+  border: 1px solid orange;
+  transition: ease-in-out .25s;
 }
 
 .leaderboard-btn:hover {
+  background-color: rgb(224, 189, 122);
+  border: 1px solid rgb(224, 189, 122);
   color: white;
-  background-color: darkorange;
+}
+
+.leaderboard-btn.active {
+  color: orange !important;
+  border-color: orange !important;
+}
+
+.leaderboard-btn.focus {
+  box-shadow: none;
 }
