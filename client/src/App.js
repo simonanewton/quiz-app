@@ -29,9 +29,8 @@ function App() {
 					<Route exact path="/quizzes">
 						<QuizMenu />
 					</Route>
-					<Route exact path="/quizzes/:subject">
-						<Quiz />
-					</Route>
+					<Route exact path="/quizzes/:subject" component={Quiz}/>
+					{/* <Route exact path="/quizzes/:subject/:level" component={Quiz}/> */}
 					<Route exact path="/leaderboard">
 						<LeaderboardMenu />
 					</Route>
