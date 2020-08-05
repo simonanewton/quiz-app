@@ -53,3 +53,14 @@ code {
   text-decoration: none;
   margin: 10px;
 }
+
+.leaderboard-btn:active,
+.leaderboard-btn:focus {
+  background-color: darkorange !important;
+  color: white !important;
+}
+
+.leaderboard-btn:hover {
+  color: white;
+  background-color: darkorange;
+}
