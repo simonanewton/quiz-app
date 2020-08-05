@@ -9,7 +9,7 @@ function Header() {
     return (
         <Navbar variant="light" expand="lg" className="p-4">
             <Navbar.Brand as={Link} to="/" className="text-white d-flex align-items-center">
-                <img src={require('./assets/quizzapplogo-white.png')} width="250px" />
+                <img src={require('./assets/logo.png')} width="250px" />
             </Navbar.Brand>
 
             <ListGroup horizontal className="ml-auto">
