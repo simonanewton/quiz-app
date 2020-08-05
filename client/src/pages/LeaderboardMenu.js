@@ -19,19 +19,19 @@ class LeaderboardMenu extends React.Component {
                     <Col sm="3">
                         <Nav variant="pills" className="flex-column">
                             <NavItem>
-                                <NavLink eventKey="first">Overall</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="second">Math</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="third">Science</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="fourth">English</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink eventKey="fifth">History</NavLink>
+                                <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
                             </NavItem>
                         </Nav>
                     </Col>

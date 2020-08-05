@@ -47,6 +47,9 @@ code {
   color: white !important;
 }
 
-#left-tabs {
+.leaderboard-btn {
   background-color: orange;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
 }
