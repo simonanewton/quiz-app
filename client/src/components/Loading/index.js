@@ -13,9 +13,7 @@ class Loading extends React.Component {
                 logoSrc={require('./icon.png')}
                 textColor='orange'
                 text='Get your quiz on!'
-                
             >
-
             </LoadingScreen>
         );
     }
