@@ -9,11 +9,4 @@ router.use((req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-// router.get('/api/score', (req, res) => {
-//     Score.find({})
-//     .then(quizappDB => {
-//         res.json(quizappDB)
-//     })
-// })
-
 module.exports = router;
