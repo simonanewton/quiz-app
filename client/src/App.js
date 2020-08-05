@@ -40,7 +40,6 @@ class App extends React.Component {
 			return <Loading />;
 		}
 		
-		
 
 		return (
 			<Router>

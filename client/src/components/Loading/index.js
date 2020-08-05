@@ -1,7 +1,6 @@
 import React from "react";
 import LoadingScreen from 'react-loading-screen';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
-// import "./index.css";
+import "./index.css";
 
 
 class Loading extends React.Component {
@@ -11,7 +10,7 @@ class Loading extends React.Component {
                 loading={true}
                 bgColor='white'
                 spinnerColor='orange'
-                logoSrc={faBolt}
+                logoSrc={require('./icon.png')}
                 textColor='orange'
                 text='Get your quiz on!'
                 
