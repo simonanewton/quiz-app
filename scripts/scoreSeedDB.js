@@ -6,8 +6,10 @@ mongoose.connect(
 );
 
 const scoreSeed = [{
-    subject: "English",
-    score: 54
+    subject: {
+        subj: "English",
+        difficulty: 4,
+    }
 }]
 
 db.Score
