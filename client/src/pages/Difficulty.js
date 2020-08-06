@@ -8,21 +8,20 @@ function Difficulty(props) {
     const { subject } = props.match.params
     return (
         <Container className="my-auto">
-            <h2 className="d-flex justify-content-center">Choose your grade or difficulty level below</h2>
             <Row className="d-flex justify-content-center">
-                <DiffBlock link={`/quizzes/${subject}/1`} name="1"  />
+                <DiffBlock link={`/quizzes/${subject}/1`} name="Grade Level 1"  />
             </Row>
             <Row className="d-flex justify-content-center">
-                <DiffBlock link={`/quizzes/${subject}/2`} name="2"  />
+                <DiffBlock link={`/quizzes/${subject}/2`} name="Grade Level 2"  />
             </Row>
             <Row className="d-flex justify-content-center">
-                <DiffBlock link={`/quizzes/${subject}/3`} name="3"  />
+                <DiffBlock link={`/quizzes/${subject}/3`} name="Grade Level 3"  />
             </Row>
             <Row className="d-flex justify-content-center">
-                <DiffBlock link={`/quizzes/${subject}/4`} name="4"  />
+                <DiffBlock link={`/quizzes/${subject}/4`} name="Grade Level 4"  />
             </Row>
             <Row className="d-flex justify-content-center">
-                <DiffBlock link={`/quizzes/${subject}/5`} name="5"  />
+                <DiffBlock link={`/quizzes/${subject}/5`} name="Grade Level 5"  />
             </Row>
         </Container>
     );
