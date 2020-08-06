@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const userRoutes = require("./user");
+const scoreRoutes = require('./score');
 const db = require("../../models/");
 
 router.use("/user", userRoutes);
+router.use("/scores", scoreRoutes)
 
 router.route("/signin").post(async (req, res) => {
     try {
