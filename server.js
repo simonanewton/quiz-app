@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(require("./routes"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizAppDB", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizapp", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`));
 
 
 app.listen(PORT, () => {
