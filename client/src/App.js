@@ -10,34 +10,65 @@ import SignUp from './pages/SignUp';
 import Loading from './components/Loading/index'
 import './App.css';
 
-function App() {
-	return (
-		<Router>
-			<div className="vh-100 d-flex flex-column">
-				<Header />
-				{/* <Loading /> */}
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/signin">
-						<SignIn />
-					</Route>
-					<Route exact path="/signup">
-						<SignUp />
-					</Route>
-					<Route exact path="/quizzes">
-						<QuizMenu />
-					</Route>
-					<Route exact path="/quizzes/:subject" component={Quiz}/>
-					{/* <Route exact path="/quizzes/:subject/:level" component={Quiz}/> */}
-					<Route exact path="/leaderboard">
-						<LeaderboardMenu />
-					</Route>
-				</Switch>
-			</div>
-		</Router>
-	);
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { isLoading: true }
+	}	
+	
+
+	performLoadingTime = async() => {
+		return new Promise((resolve) =>
+			setTimeout(
+				() => { resolve('result') },
+				2000
+			)
+		);
+	}
+
+	async componentDidMount() {
+		const data = await this.performLoadingTime();
+
+		if (data !== null) {
+			this.setState({ isLoading: false })
+		}
+	}
+
+	render() {
+
+		if (this.state.isLoading) {
+			return <Loading />;
+		}
+		
+
+		return (
+			<Router>
+				<div className="vh-100 d-flex flex-column">
+					<Header />
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route exact path="/signin">
+							<SignIn />
+						</Route>
+						<Route exact path="/signup">
+							<SignUp />
+						</Route>
+						<Route exact path="/quizzes">
+							<QuizMenu />
+						</Route>
+						<Route exact path="/quizzes/:subject" component={Quiz}/>
+						{/* <Route exact path="/quizzes/:subject/:level" component={Quiz}/> */}
+						<Route exact path="/leaderboard">
+							<LeaderboardMenu />
+						</Route>
+					</Switch>
+				</div>
+			</Router>
+		)
+
+	};
 }
 
 export default App;
