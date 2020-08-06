@@ -1,0 +1,31 @@
+input.error {
+    border: 1px solid red;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 0.75em;
+    display: relative;
+}
+
+.firstName {
+    margin-right: 1%;
+}
+
+.lastName {
+    margin-left: 1%;
+}
+
+.firstName, .lastName, .email, .password {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.firstName, .lastName {
+    width: 49%;
+}
+
+.email, .password {
+    width: 100%;
+}

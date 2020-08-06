@@ -7,8 +7,14 @@ const userSchema = new Schema ({
     lastname: { type: String, required: true },
     username: { type: String, required: true },
     emailAddress: { type: String, required: true, unique: true },
-    password: { type: String, required: true, bcrypt: true },
+    password: { type: String, required: true},
+    scores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Score'}]
 })
+
+userSchema.methods.comparePassword = function(password, callback) {
+    console.log(this.password + " and " + password)
+    return callback(null, bcrypt.compareSync(password, this.password));
+};
 
 const User = mongoose.model('User', userSchema);
 
