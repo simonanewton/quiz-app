@@ -9,8 +9,9 @@ const userSeed = [{
   firstname: "Toni",
   lastname: "Davis",
   username: "tdj",
-  emailAddress: "tdj@gmail.com",
-  password: "coolchick92"
+  emailaddress: "tdj@gmail.com",
+  password: "coolchick92",
+  score: []
 }]
 
 db.User
