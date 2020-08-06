@@ -17,24 +17,9 @@ class Quiz extends Component {
     }
 
     componentDidMount() {
-        // const { subject } = this.props.match.params;
-        // const { level } = this.props.match.params;
-        // import (`../assets/questions/${subject}`).then(data => {
-        //     // this.setState({ questions: data.default.levelOne })
-        //     this.setState({ questions: data.default[1] })
-        // });
-        // console.log(subject);
         this.setQuestions();
         this.startTimer();
     }
-
-    // componentDidUpdate = (prevProps) => {
-    //     const { match: prevMatch } = prevProps;
-    //     const { match: currentMatch } = this.props;
-      
-    //     // any time the params change, update the questions
-    //     if (prevMatch.params !== currentMatch.params) this.setQuestions();
-    //   };
 
     setQuestions = () => {
         const { subject, level } = this.props.match.params;
