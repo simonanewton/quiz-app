@@ -9,19 +9,18 @@ class Quiz extends Component {
         this.state = {
             score: 0,
             timer: 120,
-            level: "one",
-            // level: "levelOne",
-            subject: this.props.match.params.subject,
+            // level: "",
+            subject: "",
             questions: []
         }
     }
 
     componentDidMount() {
         const { subject } = this.props.match.params;
-        // const { level } = this.props.match.params;
+        const { level } = this.props.match.params;
         import (`../assets/questions/${subject}`).then(data => {
-            this.setState({ questions: data.default.levelOne })
-            // this.setState({ questions: data.default[level] })
+            // this.setState({ questions: data.default.levelOne })
+            this.setState({ questions: data.default[1] })
         });
         console.log(subject);
         this.startTimer();
