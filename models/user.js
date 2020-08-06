@@ -11,10 +11,10 @@ const userSchema = new Schema ({
     scores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Score'}]
 })
 
-userSchema.methods.comparePassword = function(password, callback) {
-    console.log(this.password + " and " + password)
-    return callback(null, bcrypt.compareSync(password, this.password));
-};
+// userSchema.methods.comparePassword = function(password, callback) {
+//     console.log(this.password + " and " + password)
+//     return callback(null, bcrypt.compareSync(password, this.password));
+// };
 
 const User = mongoose.model('User', userSchema);
 
