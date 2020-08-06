@@ -59,7 +59,6 @@ class App extends React.Component {
 						<Route exact path="/quizzes">
 							<QuizMenu />
 						</Route>
-						{/* <Route exact path="/quizzes/:subject" component={Quiz}/> */}
 						<Route exact path="/quizzes/:subject" component={Difficulty} />
 						<Route exact path="/quizzes/:subject/:level" component={Quiz} />
 						<Route exact path="/leaderboard">
