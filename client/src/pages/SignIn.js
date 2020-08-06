@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, Form, Container} from "react-bootstrap";
+import {Button, Form, Container, Jumbotron} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
@@ -33,39 +33,39 @@ class SignIn extends Component {
   };
 
   render() { return(
-    <div>
-      <Container>
-      <h1>Welcome to QuizApp!</h1>
-        <Form>
-          <Form.Group controlId="formUsername">
-            <Form.Control 
-              value={this.state.username}
-              type="text" 
-              placeholder="Enter Username" 
-              name='username'
-              onChange={this.handleInputChange}
-              />
-          </Form.Group>
+       <Container className="my-auto">
+        <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
+          <h1>Welcome to QuizApp!</h1>
+            <Form>
+              <Form.Group controlId="formUsername">
+                <Form.Control 
+                  value={this.state.username}
+                  type="text" 
+                  placeholder="Enter Username" 
+                  name='username'
+                  onChange={this.handleInputChange}
+                  />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Control
-            value={this.state.password} 
-            type="password" 
-            placeholder="Password"
-            name= "password"
-            onChange={this.handleInputChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <p className="signUpLink">Don't have an account? <Link to="/signup">Sign Up</Link></p>
-            <p className="forgotPasswordLink">Forgot Password</p>
-          </Form.Group>
-          <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
-            Submit
-          </Button>
-        </Form>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Control
+                value={this.state.password} 
+                type="password" 
+                placeholder="Password"
+                name= "password"
+                onChange={this.handleInputChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicCheckbox">
+                <p className="signUpLink">Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                <p className="forgotPasswordLink">Forgot Password</p>
+              </Form.Group>
+              <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
+                Submit
+              </Button>
+            </Form>
+        </Jumbotron>
       </Container>
-    </div>
   )
   }
 };

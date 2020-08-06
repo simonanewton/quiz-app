@@ -29,7 +29,7 @@ class Register extends Component {
     //             //return
     //         }
     
-    //         console.log(this.state)
+        console.log(this.state)
     
     //         setValidated(true);
     
@@ -42,8 +42,16 @@ class Register extends Component {
     //         // })
     //         // .then((res) => {
     //         //     const { history } = this.props;
-    //         //     store.set(`loggedIn`, true);
-    //         //     history.push(`/profile/${res.data._id}`);
+
+                    // store.set(`user`, {
+                    //     id : res.data._id,
+                    //     firstname: res.data.firstname,
+                    //     lastname: res.data.lastname,
+                    //     email: res.data.email,
+                    //     username: res.data.username
+                    //     loggedIn : true
+                    // });
+                    // history.push(`/profile/${res.data._id}`);
     //         // })
     //         // .catch((err) => console.log(err));
         };
@@ -121,6 +129,23 @@ class Register extends Component {
                         </InputGroup>
                     </Col>
                 </Form.Group>
+
+                <Form.Group as={Row} controlId="formPassword">
+                    <Form.Label column sm={2}>
+                    Password
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="password" 
+                            placeholder="Password" 
+                            name="password"
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                    </Col>
+                </Form.Group>
+
                 <Button type="submit">Submit form</Button>
             </Form>
         );
