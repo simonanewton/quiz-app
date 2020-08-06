@@ -8,11 +8,11 @@ function QuizMenu() {
         <Container>
             <Row className="d-flex justify-content-center">
                 <Block link="/quizzes/math" name="Math" icon={faCalculator} />
-                <Block link="/quizzes/science/:level" name="Science" icon={faFlask} />
+                <Block link="/quizzes/science" name="Science" icon={faFlask} />
             </Row>
             <Row className="d-flex justify-content-center">
-                <Block link="/quizzes/english/:level" name="English" icon={faPencilAlt} />
-                <Block link="/quizzes/history/:level" name="History" icon={faBook} />
+                <Block link="/quizzes/english" name="English" icon={faPencilAlt} />
+                <Block link="/quizzes/history" name="History" icon={faBook} />
             </Row>
         </Container>
     );

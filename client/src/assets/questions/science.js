@@ -363,10 +363,10 @@ const levelFive = [
       }
 ];
 
-module.exports = {
-	levelOne: levelOne,
-	levelTwo: levelTwo,
-	levelThree: levelThree,
-	levelFour: levelFour,
-	levelFive: levelFive
+export default {
+	1: levelOne,
+	2: levelTwo,
+	3: levelThree,
+	4: levelFour,
+	5: levelFive
 }

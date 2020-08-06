@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Jumbotron } from 'react-bootstrap';
+import allQuestions from '../assets/questions'
 import QuizQuestions from '../components/QuizQuestions';
 import '../index.css';
 
@@ -9,22 +10,38 @@ class Quiz extends Component {
         this.state = {
             score: 0,
             timer: 120,
-            // level: "",
+            level: "",
             subject: "",
             questions: []
         }
     }
 
     componentDidMount() {
-        const { subject } = this.props.match.params;
-        const { level } = this.props.match.params;
-        import (`../assets/questions/${subject}`).then(data => {
-            // this.setState({ questions: data.default.levelOne })
-            this.setState({ questions: data.default[1] })
-        });
-        console.log(subject);
+        // const { subject } = this.props.match.params;
+        // const { level } = this.props.match.params;
+        // import (`../assets/questions/${subject}`).then(data => {
+        //     // this.setState({ questions: data.default.levelOne })
+        //     this.setState({ questions: data.default[1] })
+        // });
+        // console.log(subject);
+        this.setQuestions();
         this.startTimer();
     }
+
+    // componentDidUpdate = (prevProps) => {
+    //     const { match: prevMatch } = prevProps;
+    //     const { match: currentMatch } = this.props;
+      
+    //     // any time the params change, update the questions
+    //     if (prevMatch.params !== currentMatch.params) this.setQuestions();
+    //   };
+
+    setQuestions = () => {
+        const { subject, level } = this.props.match.params;
+        const subjectQuestions = allQuestions[subject];
+        const questions = !!subjectQuestions ? subjectQuestions[level] : [];
+        this.setState({ questions });
+      };
 
     startTimer = () => {
         this.timerInterval = setInterval(() => {
