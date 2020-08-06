@@ -5,16 +5,6 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/quizapp"
 );
 
-<<<<<<< HEAD
-const userSeed = [{
-  firstname: "Toni",
-  lastname: "Davis",
-  username: "tdj",
-  emailaddress: "tdj@gmail.com",
-  password: "coolchick92",
-  score: []
-}]
-=======
 const userSeed = [
   {
     firstname: "Toni",
@@ -32,7 +22,6 @@ const userSeed = [
   }
 
 ]
->>>>>>> 8f8047cafe9dd67965e81cdac85a0ea6c5257927
 
 db.User
   .remove({})
