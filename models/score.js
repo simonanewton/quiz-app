@@ -6,10 +6,7 @@ const scoreSchema = new Schema ({
     subject: [{
         id: { type: String, required: true },
         subj: { type: String, required: true },
-        difficulty: [{
-            id: { type: String, required: true },
-            difficulty: { type: Number, required: true }
-        }]
+        difficulty: { type: Number, required: true }
     }]
 })
 
