@@ -1,5 +1,5 @@
 import React from "react";
-import { TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
+import { Jumbotron, TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
 import '../index.css';
 import LeaderboardTable from '../components/LeaderboardTable/index';
 
@@ -10,53 +10,51 @@ class LeaderboardMenu extends React.Component {
             choices: ['Overall', 'Math', 'Science', 'English', 'History']
         }
     }
-    
-    // this.state.choices.map((choice) =>
 
     renderChoices = () => {
         return (
-            <TabContainer id="left-tabs" defaultActiveKey="first">
-                  <Row className="col-sm-12">
-                    <Col sm="3">
-                        <Nav variant="pills" className="flex-column">
-                            <NavItem>
-                                <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                    <Col sm="9">
-                        <TabContent>
-                            <TabPane eventKey="first">
-                                <LeaderboardTable/>
-                            </TabPane>
-                            <TabPane eventKey="second">
-                                <LeaderboardTable/>
-                            </TabPane>
-                            <TabPane eventKey="third">
-                                <LeaderboardTable/>
-                            </TabPane>
-                            <TabPane eventKey="fourth">
-                                <LeaderboardTable/>
-                            </TabPane>
-                            <TabPane eventKey="fifth">
-                                <LeaderboardTable/>
-                            </TabPane>
-                        </TabContent>
-                    </Col>
-                </Row>
-            </TabContainer>
+                <TabContainer id="left-tabs" defaultActiveKey="first">
+                    <Row className="col-sm-12 center">
+                        <Col sm="3">
+                            <Nav variant="pills" className="flex-column">
+                                <NavItem>
+                                    <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Col>
+                        <Col sm="9">
+                            <TabContent>
+                                <TabPane eventKey="first">
+                                    <LeaderboardTable/>
+                                </TabPane>
+                                <TabPane eventKey="second">
+                                    <LeaderboardTable/>
+                                </TabPane>
+                                <TabPane eventKey="third">
+                                    <LeaderboardTable/>
+                                </TabPane>
+                                <TabPane eventKey="fourth">
+                                    <LeaderboardTable/>
+                                </TabPane>
+                                <TabPane eventKey="fifth">
+                                    <LeaderboardTable/>
+                                </TabPane>
+                            </TabContent>
+                        </Col>
+                    </Row>
+                </TabContainer>
         );
     }
 

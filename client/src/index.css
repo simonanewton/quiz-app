@@ -71,3 +71,8 @@ code {
 .leaderboard-btn.focus {
   box-shadow: none;
 }
+
+.center {
+  max-width: 50%;
+  margin: auto;
+}

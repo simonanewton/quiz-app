@@ -1,14 +1,10 @@
 const router = require("express").Router();
 const scoreController = require("../../controllers/scoreController");
+const { db } = require("../../models/user");
 
 //Connects to "/api"
-router.route("/")
-    .get(scoreController.findAll)
-    .post(scoreController.create);
-
-router.route("/:id")
-    .get(scoreController.findById)
-    .put(scoreController.update)
-    .delete(scoreController.remove)
+router.get('/api/user', (req, res) => {
+    db.User.find({})
+})
 
 module.exports = router;
