@@ -7,7 +7,7 @@ import LeaderboardMenu from './pages/LeaderboardMenu';
 import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
 import SignUp from './pages/SignUp';
-import Loading from './components/Loading/index'
+// import Loading from './components/Loading/index'
 import './App.css';
 import Difficulty from './pages/Difficulty';
 
@@ -17,29 +17,28 @@ class App extends React.Component {
 		this.state = { isLoading: true }
 	}	
 	
+	// performLoadingTime = async() => {
+	// 	return new Promise((resolve) =>
+	// 		setTimeout(
+	// 			() => { resolve('result') },
+	// 			2000
+	// 		)
+	// 	);
+	// }
 
-	performLoadingTime = async() => {
-		return new Promise((resolve) =>
-			setTimeout(
-				() => { resolve('result') },
-				2000
-			)
-		);
-	}
+	// async componentDidMount() {
+	// 	const data = await this.performLoadingTime();
 
-	async componentDidMount() {
-		const data = await this.performLoadingTime();
-
-		if (data !== null) {
-			this.setState({ isLoading: false })
-		}
-	}
+	// 	if (data !== null) {
+	// 		this.setState({ isLoading: false })
+	// 	}
+	// }
 
 	render() {
 
-		if (this.state.isLoading) {
-			return <Loading />;
-		}
+		// if (this.state.isLoading) {
+		// 	return <Loading />;
+		// }
 		
 
 		return (

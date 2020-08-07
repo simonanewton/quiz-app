@@ -3,8 +3,8 @@ const userRoutes = require("./user");
 const scoreRoutes = require('./score');
 const db = require("../../models/");
 
-router.use("/user", userRoutes);
-router.use("/scores", scoreRoutes)
+router.use("/user", userRoutes); // api/user
+router.use("/scores", scoreRoutes) //api/scores
 
 router.route("/signin").post(async (req, res) => {
     try {
