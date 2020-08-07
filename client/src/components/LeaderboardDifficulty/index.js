@@ -1,6 +1,6 @@
 import React from "react";
 import { ToggleButtonGroup, ToggleButton, Button } from 'react-bootstrap';
-// import './index.css';
+import './index.css';
 
 class LeaderboardDifficulty extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class LeaderboardDifficulty extends React.Component {
 
     renderChoices = () => {
         return this.state.choice.map((choice) => (
-            <ToggleButton type="radio" value={choice} key={choice} size="lg" block className="my-3 rounded">
+            <ToggleButton type="radio" value={choice} key={choice} size="lg" block className="my-3 rounded difficultyBtn">
                 {choice}
             </ToggleButton>
         ));
@@ -21,10 +21,12 @@ class LeaderboardDifficulty extends React.Component {
 
     render() {
         return (
-            <ToggleButtonGroup name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
-                    {this.renderChoices()}
+            <div>
+                <h3>Please choose the level of difficulty:</h3>
+                <ToggleButtonGroup name="choices" type="radio" className="w-100">
+                        {this.renderChoices()}
                 </ToggleButtonGroup>
-
+            </div>
     )};
 }
 
