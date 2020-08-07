@@ -2,6 +2,7 @@ import React from "react";
 import { Jumbotron, TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
 import '../index.css';
 import LeaderboardTable from '../components/LeaderboardTable/index';
+import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -40,6 +41,7 @@ class LeaderboardMenu extends React.Component {
                                     <LeaderboardTable/>
                                 </TabPane>
                                 <TabPane eventKey="second">
+                                    <LeaderboardDifficulty />
                                     <LeaderboardTable/>
                                 </TabPane>
                                 <TabPane eventKey="third">
