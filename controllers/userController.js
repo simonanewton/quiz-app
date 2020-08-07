@@ -6,7 +6,7 @@ const User = require("../models/user");
 module.exports = {
   findAll: function(req, res) {
     db.User.find(req.query)
-      .then(dbUser => res.json(dbUser))
+      .then(dbUser => console.log(res.json(dbUser)))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {

@@ -5,8 +5,9 @@ const userController = require("../../controllers/userController");
 router.route("/")
     // .get(userController.findAll)
     .post((req, res) => {
-        console.log(req);
-        return res.send(req);
+        //console.log(req);
+        //return res.send(req);
+        return console.log("api/user")
     });
 
 router.route("/:id")

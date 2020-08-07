@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Container, Form, Col, Button, Row, Jumbotron, InputGroup } from "react-bootstrap"
 import API from "../../utils/API"
 //import store from "store";
