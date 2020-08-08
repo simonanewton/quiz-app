@@ -40,21 +40,45 @@ class LeaderboardMenu extends React.Component {
                       subject: "Math"
                     }]
                   },
+                  {
+                    firstname: "Logan",
+                    lastname: "Hemphill",
+                    username: "loganhemphill",
+                    emailAddress: "lhemphill@yahoo.com",
+                    password: "fdsafads",
+                    scores: [{
+                      score: 542,
+                      difficulty: 5,
+                      subject: "History"
+                    }]
+                },
+                {
+                    firstname: "Toni",
+                    lastname: "Davis",
+                    username: "tdj",
+                    emailAddress: "tdj@gmail.com",
+                    password: "coolchick92",
+                    scores: [{
+                      score: 654,
+                      difficulty: 5,
+                      subject: "English"
+                    }]
+                  },
             ]
         };
       }
 
     // Render user list
     renderUsers() {
-        return this.state.users.map(name => (
-            <ListItem>{name.username}</ListItem>
+        return this.state.users.map(user => (
+            <ListItem>{user.username}</ListItem>
         ))
     }
 
     // Render score list
     renderScores() {
-        return this.state.users.map(name => (
-            <ListItem>{name.scores[0].score}</ListItem>
+        return this.state.users.map(user => (
+            <ListItem>{user.scores[0].score}</ListItem>
         ))
     }
 
