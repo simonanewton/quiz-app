@@ -3,9 +3,10 @@ import axios from "axios";
 
 export default {
   // Gets all saved users
-  getSavedUser: function() {
+  getUsers: function() {
     return axios.get("/api/user");
   },
+  
   //Get by email
   getEmail: function(email) {
     return axios.get("/api/user/" + email);

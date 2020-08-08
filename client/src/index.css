@@ -77,3 +77,12 @@ code {
   margin: auto;
 }
 
+/* List Styling for Leaderboard */
+.list {
+  max-width: 500px;
+}
+
+.background {
+  background-color: white;
+  max-width: 75%;
+}

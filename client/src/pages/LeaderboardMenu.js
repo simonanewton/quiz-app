@@ -1,84 +1,189 @@
 import React from "react";
 import { Jumbotron, TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
 import '../index.css';
-import LeaderboardTable from '../components/LeaderboardTable/index';
-import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
+// import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
+// import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
+import { List, ListItem } from '../components/LeaderboardTable';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            choices: ['Overall', 'Math', 'Science', 'English', 'History']
-        }
+            users: [
+                {
+                    firstname: "Nicole",
+                    lastname: "Obomsawin",
+                    username: "nicoleobom",
+                    emailAddress: "nicoleobom@yahoo.com",
+                    password: "dfjs8jc83jf",
+                    scores: [
+                        {
+                            score: 432,
+                            difficulty: 4,
+                            subject: "Math"
+                        }]
+                  },
+                  {
+                    firstname: "Simon",
+                    lastname: "Newton",
+                    username: "simonsays",
+                    emailAddress: "bleepblorp@gmail.com",
+                    password: "simonisknowledgable",
+                    scores: [{
+                      score: 432,
+                      difficulty: 5,
+                      subject: "Science"
+                    },
+                    {
+                      score: 543,
+                      difficulty: 5,
+                      subject: "Math"
+                    }]
+                  },
+            ]
+        };
+      }
+
+    // Render user list
+    renderUsers() {
+        return this.state.users.map(name => (
+            <ListItem>{name.username}</ListItem>
+        ))
     }
 
-    renderChoices = () => {
+    // Render score list
+    renderScores() {
+        return this.state.users.map(name => (
+            <ListItem>{name.scores[0].score}</ListItem>
+        ))
+    }
+
+    // Render DOM
+    render() {
         return (
-                <TabContainer id="left-tabs" defaultActiveKey="first">
-                    <Row className="col-sm-12 center">
-                        <Col sm="3">
-                            <Nav variant="pills" className="flex-column">
-                                <NavItem>
-                                    <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Col>
-                        <Col sm="9">
-                            <TabContent>
-                                <TabPane eventKey="first">
-                                    <LeaderboardTable/>
-                                </TabPane>
-                                <TabPane eventKey="second">
-                                    <LeaderboardDifficulty />
-                                    <LeaderboardTable/>
-                                </TabPane>
-                                <TabPane eventKey="third">
-                                    <LeaderboardDifficulty />
-                                    <LeaderboardTable/>
-                                </TabPane>
-                                <TabPane eventKey="fourth">
-                                    <LeaderboardDifficulty />
-                                    <LeaderboardTable/>
-                                </TabPane>
-                                <TabPane eventKey="fifth">
-                                    <LeaderboardDifficulty />
-                                    <LeaderboardTable/>
-                                </TabPane>
-                            </TabContent>
-                        </Col>
-                    </Row>
-                </TabContainer>
+            <Jumbotron className="background">
+                    <div className="row">
+                        <div className="col-sm-6 list">
+                            <List>{this.renderUsers()}</List>
+                        </div>
+                        <div className="col-sm-6 list">
+                            <List>{this.renderScores()}</List>
+                        </div>
+                    </div>
+            </Jumbotron>
         );
     }
 
-    selectChoice = (value) => {
-        this.setState({
-            chosen: value,
-            isChosen: true
-        });
-    }
+                
 
-    render() {
-        return (
-            <div>
-                <ToggleButtonGroup vertical name="choices" type="radio" className="w-100" onChange={(event) => this.selectChoice(event)}>
-                        {this.renderChoices()}
-                </ToggleButtonGroup>
-            </div>
-        )
-    }
+      
 }
+
+
+
+// function LeaderboardMenu () {
+
+//     const [users, setUsers] = useState()
+//     const [formObject, setFormObject] = useState([])
+
+//     useEffect(() => {
+//         loadLeaderboard()
+//     }, []);
+
+//     function loadLeaderboard() {
+//         API.getUsers()
+//             .then(res =>
+//                 setUsers(res.data)
+//             )
+//             .catch(err => console.log(err))
+            
+//     }
+    
+//         return (
+
+
+//             <List>
+//                 {users.map(user => (
+//                     <ListItem key={user._id}>
+//                             <strong>
+//                                 {this.state.username}
+//                             </strong>
+//                     </ListItem>
+//                 ))}
+//             </List>
+
+                // <List>
+                //     {users.map(user => (
+                //         <ListItem key={user._id}>
+                //             <Link to={"/api" + user._id}>
+                //                 <strong>
+                //                     {user.username} by {user.score}
+                //                 </strong>
+                //             </Link>
+                //         </ListItem>
+                //     ))}
+                // </List>
+
+
+
+                // <TabContainer id="left-tabs" defaultActiveKey="first">
+                //     <Row className="col-sm-12 center">
+                //         <Col sm="3">
+                //             <Nav variant="pills" className="flex-column">
+                //                 <NavItem>
+                //                     <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
+                //                 </NavItem>
+                //                 <NavItem>
+                //                     <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
+                //                 </NavItem>
+                //                 <NavItem>
+                //                     <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
+                //                 </NavItem>
+                //                 <NavItem>
+                //                     <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
+                //                 </NavItem>
+                //                 <NavItem>
+                //                     <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
+                //                 </NavItem>
+                //             </Nav>
+                //         </Col>
+                //         <Col sm="9">
+                //             <TabContent>
+                //                 <TabPane eventKey="first">
+                //                     {/* <LeaderboardTable/> */}
+                //                     <List>
+                //                         {users.map(user => (
+                //                             <ListItem key={user._id}>
+                //                                 <Link to={"/user/" + user._id}>
+                //                                 <strong>
+                //                                     {user.username} by {user.score}
+                //                                 </strong>
+                //                                 </Link>
+                //                             </ListItem>
+                //                         ))}
+                //                     </List>
+                //                 </TabPane>
+                //                 <TabPane eventKey="second">
+                //                     <LeaderboardDifficulty />
+                //                         {/* <LeaderboardTable /> */}
+                //                 </TabPane>
+                //                 <TabPane eventKey="third">
+                //                     <LeaderboardDifficulty />
+                //                     {/* <LeaderboardTable/> */}
+                //                 </TabPane>
+                //                 <TabPane eventKey="fourth">
+                //                     <LeaderboardDifficulty />
+                //                     {/* <LeaderboardTable/> */}
+                //                 </TabPane>
+                //                 <TabPane eventKey="fifth">
+                //                     <LeaderboardDifficulty />
+                //                     {/* <LeaderboardTable/> */}
+                //                 </TabPane>
+                //             </TabContent>
+                //         </Col>
+                //     </Row>
+                // </TabContainer>
+//         );
+// }
 
 export default LeaderboardMenu;
