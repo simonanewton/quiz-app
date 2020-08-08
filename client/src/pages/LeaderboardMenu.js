@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, TabContainer, TabContent, TabPane, Row, NavItem, NavLink, Nav, Col, ToggleButtonGroup } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 import '../index.css';
 // import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
 // import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";

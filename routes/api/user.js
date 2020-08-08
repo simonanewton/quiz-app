@@ -14,7 +14,7 @@ router.route("/:id")
     //finding users by id
     .get(userController.findById)
     // updating info for settings??
-    .put(userController.update)
+    //.put(userController.update)
     // deleting users
     // .delete(userController.remove)
 
