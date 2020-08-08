@@ -5,13 +5,17 @@ const userController = require("../../controllers/userController");
 
 //Connects to "/api"
 router.route("/")
+    // get request for finding all users
     .get(userController.findAll)
-    .post(userController.create)
+    // posting to API /creating new user
+    .post(userController.create);
 
-
-// router.route("/:id")
-//     .get(userController.findById)
-//     .put(userController.update)
-
+router.route("/:id")
+    //finding users by id
+    .get(userController.findById)
+    // updating info for settings??
+    .put(userController.update)
+    // deleting users
+    // .delete(userController.remove)
 
 module.exports = router;
