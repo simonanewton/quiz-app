@@ -4,83 +4,50 @@ import '../index.css';
 // import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
 // import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
 import { List, ListItem } from '../components/LeaderboardTable';
+import API from '../utils/API';
+import axios from 'axios';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [
-                {
-                    firstname: "Nicole",
-                    lastname: "Obomsawin",
-                    username: "nicoleobom",
-                    emailAddress: "nicoleobom@yahoo.com",
-                    password: "dfjs8jc83jf",
-                    scores: [
-                        {
-                            score: 432,
-                            difficulty: 4,
-                            subject: "Math"
-                        }]
-                  },
-                  {
-                    firstname: "Simon",
-                    lastname: "Newton",
-                    username: "simonsays",
-                    emailAddress: "bleepblorp@gmail.com",
-                    password: "simonisknowledgable",
-                    scores: [{
-                      score: 432,
-                      difficulty: 5,
-                      subject: "Science"
-                    },
-                    {
-                      score: 543,
-                      difficulty: 5,
-                      subject: "Math"
-                    }]
-                  },
-                  {
-                    firstname: "Logan",
-                    lastname: "Hemphill",
-                    username: "loganhemphill",
-                    emailAddress: "lhemphill@yahoo.com",
-                    password: "fdsafads",
-                    scores: [{
-                      score: 542,
-                      difficulty: 5,
-                      subject: "History"
-                    }]
-                },
-                {
-                    firstname: "Toni",
-                    lastname: "Davis",
-                    username: "tdj",
-                    emailAddress: "tdj@gmail.com",
-                    password: "coolchick92",
-                    scores: [{
-                      score: 654,
-                      difficulty: 5,
-                      subject: "English"
-                    }]
-                  },
-            ]
+            users: []
         };
-      }
+    }
 
+    componentDidMount() {
+        console.log("yay!");
+
+          API.getUsers(this.state.users)
+            .then(res => {
+                console.log(res.data);
+                
+                if(res.data.length === 0){
+                    throw new Error ("No data found");
+                }
+                if(res.data.status === "error") {
+                    throw new Error (res.data.message);
+                }
+
+                this.setState({
+                    users: res.data
+                })
+            })
+      }
+      
     // Render user list
     renderUsers() {
         return this.state.users.map(user => (
-            <ListItem>{user.username}</ListItem>
+            <ListItem key={user._id}>{user.username}</ListItem>
         ))
     }
 
-    // Render score list
     renderScores() {
         return this.state.users.map(user => (
-            <ListItem>{user.scores[0].score}</ListItem>
+            <ListItem key={user._id}>{user.scores[0].score}</ListItem>
         ))
     }
+    
 
     // Render DOM
     render() {
@@ -88,10 +55,10 @@ class LeaderboardMenu extends React.Component {
             <Jumbotron className="background">
                     <div className="row">
                         <div className="col-sm-6 list">
-                            <List>{this.renderUsers()}</List>
+                            <List>{this.renderScores()}</List>
                         </div>
                         <div className="col-sm-6 list">
-                            <List>{this.renderScores()}</List>
+                            <List>{this.renderUsers()}</List>
                         </div>
                     </div>
             </Jumbotron>
@@ -104,6 +71,7 @@ class LeaderboardMenu extends React.Component {
 }
 
 
+//////////////// reference for later
 
 // function LeaderboardMenu () {
 

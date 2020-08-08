@@ -12,10 +12,12 @@ import SignUp from './pages/SignUp';
 import Difficulty from './pages/Difficulty';
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { isLoading: true }
-	}	
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = { isLoading: true }
+	// }	
+
+	
 	
 	// performLoadingTime = async() => {
 	// 	return new Promise((resolve) =>
