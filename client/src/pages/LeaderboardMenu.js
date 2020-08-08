@@ -68,6 +68,7 @@ class LeaderboardMenu extends React.Component {
         };
       }
 
+      
     // Render user list
     renderUsers() {
         return this.state.users.map(user => (

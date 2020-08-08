@@ -27,10 +27,4 @@ module.exports = {
       .catch(err => res.json(422).json(err));
   }
 
-  // find by difficulty
-  // findByDifficulty: function(req, res) {
-  //   db.User
-
-  // }
-
 }
