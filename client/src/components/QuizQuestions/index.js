@@ -8,15 +8,35 @@ class QuizQuestions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            questionIndex: 0,
+            index: 0,
+            shuffledQuestions: null,
             chosen: null,
             isChosen: false,
             isLast: false
         }
     }
 
+    static getDerivedStateFromProps = (props, state) => {
+        const shuffleArray = (array) => {
+            let shuffled = [].concat(array);
+            let current = shuffled.length, temp, random;
+
+            while (current) {
+                random = Math.floor(Math.random() * current--);
+
+                temp = shuffled[current];
+                shuffled[current] = shuffled[random];
+                shuffled[random] = temp;
+            }
+
+            return shuffled;
+        }
+
+        return !state.shuffledQuestions ? { shuffledQuestions: shuffleArray(props.questions) } : null;
+    }
+
     renderChoices = () => {
-        return this.props.questions[this.state.questionIndex] && this.props.questions[this.state.questionIndex].choices.map((choice) => (
+        return this.state.shuffledQuestions[this.state.index].choices.map((choice) => (
             <ToggleButton type="radio" value={choice} key={choice} size="lg" block className="my-3 rounded">
                 {choice}
             </ToggleButton>
@@ -49,13 +69,13 @@ class QuizQuestions extends Component {
     }
 
     nextQuestion = () => {
-        const currentQuestion = this.props.questions[this.state.questionIndex];
+        const currentQuestion = this.state.shuffledQuestions[this.state.index];
         if (this.state.chosen === currentQuestion.choices[currentQuestion.correct_choice]) this.props.updateScore();
         if (!this.state.isLast) this.setState({
-            questionIndex: this.state.questionIndex + 1,
+            index: this.state.index + 1,
             chosen: null,
             isChosen: false,
-            isLast: this.state.questionIndex === this.props.questions.length - 2
+            isLast: this.state.index === this.props.questions.length - 2
         });
         else this.props.finishQuiz();
     }
@@ -63,8 +83,8 @@ class QuizQuestions extends Component {
     render() {
         return (
             <div>
-                <h1 className="py-2">Question {this.state.questionIndex + 1}</h1>
-                <h3 className="py-3">{this.props.questions[this.state.questionIndex] && this.props.questions[this.state.questionIndex].question}</h3>
+                <h1 className="py-2">Question {this.state.index + 1}</h1>
+                <h3 className="py-3">{this.state.shuffledQuestions[this.state.index].question}</h3>
                 <ToggleButtonGroup vertical name="choices" type="radio" className="w-50" onChange={(event) => this.selectChoice(event)}>
                     {this.renderChoices()}
                 </ToggleButtonGroup>

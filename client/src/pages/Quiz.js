@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Jumbotron } from 'react-bootstrap';
-import allQuestions from '../assets/questions'
+import { Link } from 'react-router-dom';
+import { Container, Jumbotron, Button } from 'react-bootstrap';
+import allQuestions from '../assets/questions';
 import QuizQuestions from '../components/QuizQuestions';
 import '../index.css';
 
@@ -9,24 +10,24 @@ class Quiz extends Component {
         super(props);
         this.state = {
             score: 0,
-            timer: 120,
-            level: "",
-            subject: "",
-            questions: []
+            timer: 300,
+            questions: [],
+            isOver: false
         }
     }
 
-    componentDidMount() {
-        this.setQuestions();
-        this.startTimer();
+    static getDerivedStateFromProps = (props, state) => {
+        const setQuestions = () => {
+            const { subject, level } = props.match.params;
+            return (allQuestions[subject])[level];
+        };
+
+        return !state.questions.length ? { questions: setQuestions() } : null;
     }
 
-    setQuestions = () => {
-        const { subject, level } = this.props.match.params;
-        const subjectQuestions = allQuestions[subject];
-        const questions = !!subjectQuestions ? subjectQuestions[level] : [];
-        this.setState({ questions });
-      };
+    componentDidMount() {
+        this.startTimer();
+    }
 
     startTimer = () => {
         this.timerInterval = setInterval(() => {
@@ -37,6 +38,10 @@ class Quiz extends Component {
 
     finishQuiz = () => {
         this.stopTimer();
+        this.setState({
+            score: this.state.score + this.state.timer,
+            isOver: true
+        });
     }
 
     stopTimer = () => {
@@ -58,16 +63,36 @@ class Quiz extends Component {
         return <div><b style={{ color: color }}>Timer: {minutes}m {seconds}s</b></div>;
     }
 
+    renderQuiz = () => {
+        return (
+            <div>
+                <div className="py-2 d-flex justify-content-between" style={{ fontSize: "20px" }}>
+                    {this.renderScore()}
+                    {this.renderTimer()}
+                </div>
+                <hr />
+                <QuizQuestions questions={this.state.questions} updateScore={this.updateScore} finishQuiz={this.finishQuiz} />
+            </div>
+        );
+    }
+
+    renderEndScreen = () => {
+        return (
+            <div>
+                <h1 className="my-3">Your Score: {this.state.score}</h1>
+                <div className="d-flex justify-content-center">
+                    <Button as={Link} to="/quizzes" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Quizzes</Button>
+                    <Button as={Link} to="/leaderboard" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Leaderboard</Button>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <Container className="my-auto">
                 <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
-                    <div className="py-2 d-flex justify-content-between" style={{ fontSize: "20px" }}>
-                        {this.renderScore()}
-                        {this.renderTimer()}
-                    </div>
-                    <hr />
-                    <QuizQuestions questions={this.state.questions} updateScore={this.updateScore} finishQuiz={this.finishQuiz} />
+                    {!this.state.isOver ? this.renderQuiz() : this.renderEndScreen()}
                 </Jumbotron>
             </Container>
         );
