@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Container, Form, Col, Button, Row, Jumbotron, InputGroup } from "react-bootstrap"
 import API from "../../utils/API"
 //import store from "store";
@@ -19,14 +19,13 @@ class Register extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await API.saveUser(this.state);
+        const response = await API.createUser(this.state);
         console.log(response);
     }
 
     handleInputChange = (e) => {
         let value = e.target.value;
         const name = e.target.name;
-
         this.setState({ [name]: value });
     };
 

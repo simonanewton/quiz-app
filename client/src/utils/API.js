@@ -19,13 +19,12 @@ export default {
   deleteUser: function(id) {
     return axios.delete("/api/user/" + id);
   },
-  // Saves an user to the database
-  saveUser: function(userData) {
-    return axios.post("/api/user", userData);
+  // Adds a user to database
+  createUser: function(userData) {
+    return axios.post("/api/user/", userData);
   },
-
   loginUser: function(userData) {
-    return axios.post("/api/signin", userData)
+    return axios.post("/api/signin/", userData)
   },
   logoutUser: function() {
     return axios.post("/api/signout")

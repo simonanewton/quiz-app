@@ -8,7 +8,7 @@ import QuizMenu from './pages/QuizMenu';
 import Quiz from './pages/Quiz';
 import SignUp from './pages/SignUp';
 // import Loading from './components/Loading/index'
-// import './App.css';
+//import './App.css';
 import Difficulty from './pages/Difficulty';
 
 class App extends React.Component {
