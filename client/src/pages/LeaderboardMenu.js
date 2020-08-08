@@ -5,6 +5,7 @@ import '../index.css';
 // import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
 import { List, ListItem } from '../components/LeaderboardTable';
 import API from '../utils/API';
+import axios from 'axios';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -12,46 +13,41 @@ class LeaderboardMenu extends React.Component {
         this.state = {
             users: []
         };
-      }
+    }
 
-      componentDidMount() {
-          console.log("yay!");
+    componentDidMount() {
+        console.log("yay!");
 
           API.getUsers(this.state.users)
-          console.log(this.state.users);
             .then(res => {
-                // if(res.data.length === 0){
-                //     throw new Error ("No data found");
-                // }
-                // if(res.data.status === "error") {
-                //     throw new Error (res.data.message);
-                // }
-
-                // console.log('test')
+                console.log(res.data);
+                
+                if(res.data.length === 0){
+                    throw new Error ("No data found");
+                }
+                if(res.data.status === "error") {
+                    throw new Error (res.data.message);
+                }
 
                 this.setState({
-                    username: res.data[0],
-                    score: res.data.scores[0].score,
-                }, console.log('test'))
-
-                console.log("Test");
+                    users: res.data
+                })
             })
-            .catch(err => this.setState({ error: err.message }));
       }
       
     // Render user list
     renderUsers() {
         return this.state.users.map(user => (
-            <ListItem>{user.username}</ListItem>
+            <ListItem key={user._id}>{user.username}</ListItem>
         ))
     }
 
-    // Render score list
     renderScores() {
         return this.state.users.map(user => (
-            <ListItem>{user.scores[0].score}</ListItem>
+            <ListItem key={user._id}>{user.scores[0].score}</ListItem>
         ))
     }
+    
 
     // Render DOM
     render() {
@@ -59,10 +55,10 @@ class LeaderboardMenu extends React.Component {
             <Jumbotron className="background">
                     <div className="row">
                         <div className="col-sm-6 list">
-                            <List>{this.renderUsers()}</List>
+                            <List>{this.renderScores()}</List>
                         </div>
                         <div className="col-sm-6 list">
-                            <List>{this.renderScores()}</List>
+                            <List>{this.renderUsers()}</List>
                         </div>
                     </div>
             </Jumbotron>
@@ -75,6 +71,7 @@ class LeaderboardMenu extends React.Component {
 }
 
 
+//////////////// reference for later
 
 // function LeaderboardMenu () {
 

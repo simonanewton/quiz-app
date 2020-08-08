@@ -8,10 +8,11 @@ module.exports = {
   // find all users by score, sort by ascending
   findAll: function(req, res) {
     db.User
-      .find({}) // find all
-      .select({ username: 1, scores: 1 }) // just grab 1 username and 1 scores object from user
+      .find(req.query) // find all
       .limit(10) // limit to 10 users
       .sort({ score: -1 }) // sort them in descending order
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
 
   },
 
