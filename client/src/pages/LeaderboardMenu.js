@@ -4,70 +4,40 @@ import '../index.css';
 // import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
 // import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
 import { List, ListItem } from '../components/LeaderboardTable';
+import API from '../utils/API';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [
-                {
-                    firstname: "Nicole",
-                    lastname: "Obomsawin",
-                    username: "nicoleobom",
-                    emailAddress: "nicoleobom@yahoo.com",
-                    password: "dfjs8jc83jf",
-                    scores: [
-                        {
-                            score: 432,
-                            difficulty: 4,
-                            subject: "Math"
-                        }]
-                  },
-                  {
-                    firstname: "Simon",
-                    lastname: "Newton",
-                    username: "simonsays",
-                    emailAddress: "bleepblorp@gmail.com",
-                    password: "simonisknowledgable",
-                    scores: [{
-                      score: 432,
-                      difficulty: 5,
-                      subject: "Science"
-                    },
-                    {
-                      score: 543,
-                      difficulty: 5,
-                      subject: "Math"
-                    }]
-                  },
-                  {
-                    firstname: "Logan",
-                    lastname: "Hemphill",
-                    username: "loganhemphill",
-                    emailAddress: "lhemphill@yahoo.com",
-                    password: "fdsafads",
-                    scores: [{
-                      score: 542,
-                      difficulty: 5,
-                      subject: "History"
-                    }]
-                },
-                {
-                    firstname: "Toni",
-                    lastname: "Davis",
-                    username: "tdj",
-                    emailAddress: "tdj@gmail.com",
-                    password: "coolchick92",
-                    scores: [{
-                      score: 654,
-                      difficulty: 5,
-                      subject: "English"
-                    }]
-                  },
-            ]
+            users: []
         };
       }
 
+      componentDidMount() {
+          console.log("yay!");
+
+          API.getUsers(this.state.users)
+          console.log(this.state.users);
+            .then(res => {
+                // if(res.data.length === 0){
+                //     throw new Error ("No data found");
+                // }
+                // if(res.data.status === "error") {
+                //     throw new Error (res.data.message);
+                // }
+
+                // console.log('test')
+
+                this.setState({
+                    username: res.data[0],
+                    score: res.data.scores[0].score,
+                }, console.log('test'))
+
+                console.log("Test");
+            })
+            .catch(err => this.setState({ error: err.message }));
+      }
       
     // Render user list
     renderUsers() {
