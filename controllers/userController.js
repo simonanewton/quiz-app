@@ -4,6 +4,25 @@ const { request, response } = require("express");
 const User = require("../models/user");
 
 module.exports = {
+
+  // find all users by score, sort by ascending
+  findAll: function(req, res) {
+    db.User
+      .find(req.query)
+      .sort({ score : 1 })
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
+  // find all by id
+  findById: function(req, res) {
+    db.User
+      .findById(req.params.id)
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
+  },
+
+  // creating new users/posting to json
   create: async function(req, res) {
     try {
       //req.body.password = bcrypt.hashSync(req.body.password, 10);
@@ -16,4 +35,11 @@ module.exports = {
       res.status(500).send(err);
     }
   }
-};
+
+  // find by difficulty
+  // findByDifficulty: function(req, res) {
+  //   db.User
+
+  // }
+
+}

@@ -1,10 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+<<<<<<< HEAD
 //const cookieParser = require('cookie-parser');
+=======
+const routes = require('./routes');
+const cookieParser = require('cookie-parser');
+>>>>>>> 68fce91338fd49ac683e6ec8b0479eef1432f869
 
-
-const PORT = process.env.PORT || 3001;
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 //app.use(cookieParser);
 app.use(express.urlencoded({ extended: true }));

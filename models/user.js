@@ -8,8 +8,12 @@ const userSchema = new Schema ({
     emailaddress: { type: String, required: true, unique: true },
     username: { type: String, required: true },
     password: { type: String, required: true},
-    scores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Score'}]
-})
+    scores: [{
+        score: { type: Number },
+        difficulty: { type: Number },
+        subject: { type: String }
+    }]
+});
 
 // userSchema.methods.comparePassword = function(password, callback) {
 //     console.log(this.password + " and " + password)
