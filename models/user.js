@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema ({
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
+    emailaddress: { type: String, required: true, unique: true },
     username: { type: String, required: true },
-    emailAddress: { type: String, required: true, unique: true },
     password: { type: String, required: true},
     scores: [{type: mongoose.Schema.Types.ObjectId, ref: 'Score'}]
 })

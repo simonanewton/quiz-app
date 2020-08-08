@@ -1,5 +1,5 @@
 const db = require("../models");
-const bcrypt = require("bcrypt")
+//const bcrypt = require("bcrypt")
 const { request, response } = require("express");
 const Score = require("../models/score");
 
