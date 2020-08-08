@@ -36,7 +36,7 @@ class QuizQuestions extends Component {
     }
 
     renderChoices = () => {
-        return this.props.questions[this.state.index].choices.map((choice) => (
+        return this.state.shuffledQuestions[this.state.index].choices.map((choice) => (
             <ToggleButton type="radio" value={choice} key={choice} size="lg" block className="my-3 rounded">
                 {choice}
             </ToggleButton>
@@ -69,7 +69,7 @@ class QuizQuestions extends Component {
     }
 
     nextQuestion = () => {
-        const currentQuestion = this.props.questions[this.state.index];
+        const currentQuestion = this.state.shuffledQuestions[this.state.index];
         if (this.state.chosen === currentQuestion.choices[currentQuestion.correct_choice]) this.props.updateScore();
         if (!this.state.isLast) this.setState({
             index: this.state.index + 1,

@@ -10,7 +10,7 @@ class Quiz extends Component {
         super(props);
         this.state = {
             score: 0,
-            timer: 120,
+            timer: 300,
             questions: [],
             isOver: false
         }
