@@ -47,31 +47,6 @@ code {
   color: white !important;
 }
 
-.leaderboard-btn,
-.leaderboard-btn.active,
-.leaderboard-btn:disabled {
-  margin: 10px;
-  color: white;
-  background-color: orange;
-  border: 1px solid orange;
-  transition: ease-in-out .25s;
-}
-
-.leaderboard-btn:hover {
-  background-color: rgb(224, 189, 122);
-  border: 1px solid rgb(224, 189, 122);
-  color: white;
-}
-
-.leaderboard-btn.active {
-  color: orange !important;
-  border-color: orange !important;
-}
-
-.leaderboard-btn.focus {
-  box-shadow: none;
-}
-
 .center {
   max-width: 50%;
   margin: auto;
@@ -98,13 +73,10 @@ code {
   padding-top: 8%;
 }
 
-h3 {
-  color: white;
-  font-weight: bolder;
-}
-
 .title {
   background-color: orange;
+  color: white;
+  font-weight: bolder;
   margin: auto !important;
   width: 45%;
   max-height: 50%;
@@ -126,14 +98,15 @@ i {
 }
  
 ::-webkit-scrollbar-thumb {
-  background: palegoldenrod; 
+  background: #ffd17d; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: palegoldenrod; 
+  background: #ffd17d; 
 }
 
+/* FOR PHONES */
 @media only screen and (max-width: 600px) {
   .background {
     width: 100%;
@@ -143,5 +116,8 @@ i {
   }
   .title {
     width: 100%;
+  }
+  i {
+    display: none !important;
   }
 }

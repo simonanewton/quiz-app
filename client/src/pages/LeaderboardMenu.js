@@ -53,7 +53,7 @@ class LeaderboardMenu extends React.Component {
         return (
             <div className="float-md-center bg">
                 <div className="row justify-content-center title">
-                    <h3><i class="fas fa-crown"></i>Leaderboard<i class="fas fa-crown"></i></h3>
+                    <h3 id="leaderboard-title"><i className="fas fa-crown"></i>Leaderboard<i className="fas fa-crown"></i></h3>
                 </div>
                 <Jumbotron className="background">
                     <div className="row justify-content-center align-self-center">
