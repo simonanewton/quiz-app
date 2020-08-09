@@ -55,11 +55,11 @@ class LeaderboardMenu extends React.Component {
                     <div className="row justify-content-center align-self-center">
                         <h3>Leaderboard</h3>
                     </div>
-                    <div className="row">
-                        <div className="col-sm-6 list">
+                    <div className="row justify-content-center align-self-center">
+                        <div className="col-sm-6 col-xs-6 list">
                             <List>{this.renderScores()}</List>
                         </div>
-                        <div className="col-sm-6 list">
+                        <div className="col-sm-6 col-xs-6 list">
                             <List>{this.renderUsers()}</List>
                         </div>
                     </div>
