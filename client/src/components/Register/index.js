@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
+import API from '../../utils/API';
+// import store from 'store';
 import './style.css';
 
 class Register extends Component {
@@ -18,6 +20,14 @@ class Register extends Component {
         const { name, value } = event.target;
         this.setState({ [name]: value });
     };
+
+    handleSubmit = async (event) => {
+		event.preventDefault();
+		console.log(this.state);
+		const response = await API.createUser(this.state);
+		console.log(response);
+		if (response.status === 200) this.props.handleSuccess();
+	};
 
     render() {
         return (
@@ -97,7 +107,7 @@ class Register extends Component {
                     </Col>
                 </Form.Group>
 
-                <Button type="submit" onClick={(event) => this.props.handleSubmit(event, this.state)}>Sign Up</Button>
+                <Button type="submit" onClick={this.handleSubmit}>Sign Up</Button>
             </Form>
         );
     }
