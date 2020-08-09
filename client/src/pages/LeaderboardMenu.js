@@ -5,7 +5,7 @@ import '../index.css';
 // import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
 import { List, ListItem } from '../components/LeaderboardTable';
 import API from '../utils/API';
-import axios from 'axios';
+//import axios from 'axios';
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class LeaderboardMenu extends React.Component {
     componentDidMount() {
         console.log("yay!");
 
-          API.getUsers(this.state.users)
+        API.getUsers(this.state.users)
             .then(res => {
                 console.log(res.data);
                 
@@ -33,8 +33,8 @@ class LeaderboardMenu extends React.Component {
                     users: res.data
                 })
             })
-      }
-      
+    }
+    
     // Render user list
     renderUsers() {
         return this.state.users.map(user => (

@@ -21,7 +21,7 @@ export default {
   },
   // Adds a user to database
   createUser: function(userData) {
-    return axios.post("/api/user/", userData);
+    return axios.post("/api/user", userData);
   },
   loginUser: function(userData) {
     return axios.post("/api/signin/", userData)

@@ -25,17 +25,12 @@ module.exports = {
   },
 
   // creating new users/posting to json
-  create: async function(req, res) {
-    try {
-      //req.body.password = bcrypt.hashSync(req.body.password, 10);
-      let user = new User(req.body);
-      let result = await user.save();
-      res.send(result);
-      // console.log("Create user")
-      // res.send({"message": "This is good"})
-    } catch (err) {
-      res.status(500).send(err);
-    }
+  create: function(req, res) {
+    console.log(req.body);
+    db.User
+    .create(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.status(422).json(err));
   }
 
 }

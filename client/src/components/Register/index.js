@@ -12,22 +12,30 @@ class Register extends Component {
         this.state = {
             firstname: null,
             lastname: null,
-            email: null,
+            emailaddress: null,
             username: null,
             password: null,
             accountcreated: false
         };
     }
 
-    handleSubmit = (event) => {
-        console.log(this.state)
-        event.preventDefault();
-        // const response = await API.createUser(this.state);
-        // console.log(response);
-        API.createUser(this.state)
-        .then( res => {
-            console.log(res.data)
-        }).catch(err => console.log(err))
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        const response = await API.createUser(
+            {
+                firstname:this.state.firstname,
+                lastname: this.state.lastname,
+                emailaddress: this.state.emailaddress,
+                username:this.state.username,
+                password:this.state.password
+            } 
+        )
+        console.log(response);
+        // API.createUser(this.state)
+        // .then( res => {
+        //     console.log(res.data)
+        // }).catch(err => console.log(err))
     };
 
     handleInputChange = (e) => {
@@ -80,7 +88,7 @@ class Register extends Component {
                         <Form.Control
                             type="email"
                             placeholder="Email"
-                            name="email"
+                            name="emailaddress"
                             onChange={this.handleInputChange}
                             required
                         />
