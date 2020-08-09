@@ -1,11 +1,9 @@
 import React from "react";
 import { Jumbotron } from 'react-bootstrap';
 import '../index.css';
-// import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
-// import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
 import { List, ListItem } from '../components/LeaderboardTable';
 import API from '../utils/API';
-//import axios from 'axios';
+
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -42,6 +40,7 @@ class LeaderboardMenu extends React.Component {
         ))
     }
 
+    // need to fix to make sure it doesn't include anyone who doesn't have scores yet
     renderScores() {
         return this.state.users.map(user => (
             <ListItem key={user._id}>{user.scores[0].score}</ListItem>
@@ -52,7 +51,10 @@ class LeaderboardMenu extends React.Component {
     // Render DOM
     render() {
         return (
-            <Jumbotron className="background">
+            <Jumbotron className="background float-md-center">
+                    <div className="row justify-content-center align-self-center">
+                        <h3>Leaderboard</h3>
+                    </div>
                     <div className="row">
                         <div className="col-sm-6 list">
                             <List>{this.renderScores()}</List>

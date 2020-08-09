@@ -80,10 +80,18 @@ code {
 /* List Styling for Leaderboard */
 .list {
   max-width: 500px;
+  padding: 0;
+  text-align: center;
 }
 
 .background {
-  background-color: white;
-  max-width: 75%;
-  display: inline-block;
+  background-color: orange;
+  margin: auto !important;
+  width: 65%;
+  padding: 50px !important;
+}
+
+h3 {
+  color: white;
+  font-weight: bolder;
 }
