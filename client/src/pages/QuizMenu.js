@@ -5,7 +5,7 @@ import { faCalculator, faFlask, faPencilAlt, faBook } from '@fortawesome/free-so
 
 function QuizMenu() {
     return (
-        <Container>
+        <Container className="my-auto">
             <Row className="d-flex justify-content-center">
                 <Block link="/quizzes/math" name="Math" icon={faCalculator} />
                 <Block link="/quizzes/science" name="Science" icon={faFlask} />

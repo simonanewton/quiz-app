@@ -1,57 +1,29 @@
 import React, { Component } from 'react';
-import { Container, Form, Col, Button, Row, Jumbotron, InputGroup } from "react-bootstrap"
-import { Link } from 'react-dom'
-import API from "../../utils/API"
-//import store from "store";
-import "./style.css";
+import { Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
+import './style.css';
 
 class Register extends Component {
-
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             firstname: null,
             lastname: null,
             emailaddress: null,
             username: null,
             password: null,
-            accountcreated: false
-        };
+        }
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(this.state);
-        const response = await API.createUser(
-            {
-                firstname:this.state.firstname,
-                lastname: this.state.lastname,
-                emailaddress: this.state.emailaddress,
-                username:this.state.username,
-                password:this.state.password
-            } 
-        )
-        console.log(response);
-        // API.createUser(this.state)
-        // .then( res => {
-        //     console.log(res.data)
-        // }).catch(err => console.log(err))
-    };
-
-    handleInputChange = (e) => {
-        let value = e.target.value;
-        const name = e.target.name;
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
         this.setState({ [name]: value });
     };
 
-    renderRegForm = () => {
+    render() {
         return (
             <Form noValidate>
-                
                 <Form.Group as={Row} controlId="formFirstName">
-                    <Form.Label column sm={2}>
-                        First Name
-                    </Form.Label>
+                    <Form.Label column sm={2}>First Name</Form.Label>
                     <Col sm={10}>
                         <Form.Control
                             type="text"
@@ -65,9 +37,7 @@ class Register extends Component {
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formLastName">
-                    <Form.Label column sm={2}>
-                        Last Name
-                    </Form.Label>
+                    <Form.Label column sm={2}>Last Name</Form.Label>
                     <Col sm={10}>
                         <Form.Control
                             type="text"
@@ -81,9 +51,7 @@ class Register extends Component {
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formEmail">
-                    <Form.Label column sm={2}>
-                        Email
-                    </Form.Label>
+                    <Form.Label column sm={2}>Email</Form.Label>
                     <Col sm={10}>
                         <Form.Control
                             type="email"
@@ -97,9 +65,7 @@ class Register extends Component {
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formUsername">
-                    <Form.Label column sm={2}>
-                        Username
-                    </Form.Label>
+                    <Form.Label column sm={2}>Username</Form.Label>
                     <Col sm={10}>
                         <InputGroup>
                             <InputGroup.Prepend>
@@ -112,17 +78,13 @@ class Register extends Component {
                                 onChange={this.handleInputChange}
                                 required
                             />
-                            <Form.Control.Feedback type="invalid">
-                                Please choose a username.
-                            </Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
                         </InputGroup>
                     </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formPassword">
-                    <Form.Label column sm={2}>
-                        Password
-                    </Form.Label>
+                    <Form.Label column sm={2}>Password</Form.Label>
                     <Col sm={10}>
                         <Form.Control
                             type="password"
@@ -135,31 +97,9 @@ class Register extends Component {
                     </Col>
                 </Form.Group>
 
-                <Button type="submit" onClick={this.handleSubmit}>Submit form</Button>
+                <Button type="submit" onClick={(event) => this.props.handleSubmit(event, this.state)}>Sign Up</Button>
             </Form>
         );
-    }
-
-    renderSignUpComplete = () => {
-        return (
-            <div>
-                <h1 className="my-3">Your account has been created!</h1>
-                <div className="d-flex justify-content-center">
-                    <Button as={Link} to="/quizzes" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Quizzes</Button>
-                    <Button as={Link} to="/leaderboard" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Leaderboard</Button>
-                </div>
-            </div>
-        );
-    }
-
-    render() {
-        return (
-            <Container className="my-auto">
-                <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
-                    {!this.state.accountcreated ? this.renderRegForm() : this.renderSignUpComplete()}
-                </Jumbotron>
-            </Container>
-        )
     }
 }
 
