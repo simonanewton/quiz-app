@@ -5,7 +5,7 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/quizapp"
 );
 
-console.log("boop")
+console.log("DB Connection Successful!")
 
 const userSeed = [
   {
@@ -30,6 +30,30 @@ const userSeed = [
       score: 432,
       difficulty: 4,
       subject: "Math"
+    }]
+  },
+  {
+    firstname: "Logan",
+    lastname: "Hemphill",
+    username: "hemphill",
+    emailAddress: "hemphill@dev.com",
+    password: "just4now",
+    scores: [{
+      score: 426,
+      difficulty: 5,
+      subject: "Science"
+    }]
+  },
+  {
+    firstname: "Simon",
+    lastname: "Newton",
+    username: "simonsays",
+    emailAddress: "newton@dev.com",
+    password: "passnewt",
+    scores: [{
+      score: 433,
+      difficulty: 5,
+      subject: "History"
     }]
   }
 
