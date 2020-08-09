@@ -14,21 +14,30 @@ class LeaderboardMenu extends React.Component {
     }
 
     componentDidMount() {
-        console.log("yay!");
-
         API.getUsers(this.state.users)
             .then(res => {
                 console.log(res.data);
-                //don't include users with no scores
+
                 if (res.data.length === 0) {
                     throw new Error("No data found");
                 }
                 if (res.data.status === "error") {
                     throw new Error(res.data.message);
                 }
+                
+                let scoreArray = [];
+
+                // Start new array excluding users with no score data
+                for (var i=0; i < res.data.length; i++) {
+                    if (res.data[i].scores.length !== 0) {
+                        scoreArray.push(res.data[i])
+                    }
+                }
+
+                console.log(scoreArray);
 
                 this.setState({
-                    users: res.data
+                    users: scoreArray
                 })
             })
     }
