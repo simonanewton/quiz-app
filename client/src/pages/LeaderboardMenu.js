@@ -1,11 +1,9 @@
 import React from "react";
 import { Jumbotron } from 'react-bootstrap';
 import '../index.css';
-// import LeaderboardDifficulty from "../components/LeaderboardDifficulty";
-// import { useBootstrapPrefix } from "react-bootstrap/esm/ThemeProvider";
 import { List, ListItem } from '../components/LeaderboardTable';
 import API from '../utils/API';
-//import axios from 'axios';
+
 
 class LeaderboardMenu extends React.Component {
     constructor(props) {
@@ -21,12 +19,12 @@ class LeaderboardMenu extends React.Component {
         API.getUsers(this.state.users)
             .then(res => {
                 console.log(res.data);
-                
-                if(res.data.length === 0){
-                    throw new Error ("No data found");
+                //don't include users with no scores
+                if (res.data.length === 0) {
+                    throw new Error("No data found");
                 }
-                if(res.data.status === "error") {
-                    throw new Error (res.data.message);
+                if (res.data.status === "error") {
+                    throw new Error(res.data.message);
                 }
 
                 this.setState({
@@ -34,7 +32,7 @@ class LeaderboardMenu extends React.Component {
                 })
             })
     }
-    
+
     // Render user list
     renderUsers() {
         return this.state.users.map(user => (
@@ -42,140 +40,35 @@ class LeaderboardMenu extends React.Component {
         ))
     }
 
+    // need to fix to make sure it doesn't include anyone who doesn't have scores yet
     renderScores() {
         return this.state.users.map(user => (
             <ListItem key={user._id}>{user.scores[0].score}</ListItem>
         ))
     }
-    
+
 
     // Render DOM
     render() {
         return (
-            <Jumbotron className="background">
-                    <div className="row">
-                        <div className="col-sm-6 list">
+            <div className="float-md-center bg">
+                <div className="row justify-content-center title">
+                    <h3 id="leaderboard-title"><i className="fas fa-crown"></i>Leaderboard<i className="fas fa-crown"></i></h3>
+                </div>
+                <Jumbotron className="background">
+                    <div className="row justify-content-center align-self-center">
+                        <div className="col-sm-6 col-xs-6 list">
                             <List>{this.renderScores()}</List>
                         </div>
-                        <div className="col-sm-6 list">
+                        <div className="col-sm-6 col-xs-6 list">
                             <List>{this.renderUsers()}</List>
                         </div>
                     </div>
-            </Jumbotron>
+                </Jumbotron>
+            </div>
         );
     }
-
-                
-
-      
 }
 
-
-//////////////// reference for later
-
-// function LeaderboardMenu () {
-
-//     const [users, setUsers] = useState()
-//     const [formObject, setFormObject] = useState([])
-
-//     useEffect(() => {
-//         loadLeaderboard()
-//     }, []);
-
-//     function loadLeaderboard() {
-//         API.getUsers()
-//             .then(res =>
-//                 setUsers(res.data)
-//             )
-//             .catch(err => console.log(err))
-            
-//     }
-    
-//         return (
-
-
-//             <List>
-//                 {users.map(user => (
-//                     <ListItem key={user._id}>
-//                             <strong>
-//                                 {this.state.username}
-//                             </strong>
-//                     </ListItem>
-//                 ))}
-//             </List>
-
-                // <List>
-                //     {users.map(user => (
-                //         <ListItem key={user._id}>
-                //             <Link to={"/api" + user._id}>
-                //                 <strong>
-                //                     {user.username} by {user.score}
-                //                 </strong>
-                //             </Link>
-                //         </ListItem>
-                //     ))}
-                // </List>
-
-
-
-                // <TabContainer id="left-tabs" defaultActiveKey="first">
-                //     <Row className="col-sm-12 center">
-                //         <Col sm="3">
-                //             <Nav variant="pills" className="flex-column">
-                //                 <NavItem>
-                //                     <NavLink className="leaderboard-btn" eventKey="first">Overall</NavLink>
-                //                 </NavItem>
-                //                 <NavItem>
-                //                     <NavLink className="leaderboard-btn" eventKey="second">Math</NavLink>
-                //                 </NavItem>
-                //                 <NavItem>
-                //                     <NavLink className="leaderboard-btn" eventKey="third">Science</NavLink>
-                //                 </NavItem>
-                //                 <NavItem>
-                //                     <NavLink className="leaderboard-btn" eventKey="fourth">English</NavLink>
-                //                 </NavItem>
-                //                 <NavItem>
-                //                     <NavLink className="leaderboard-btn" eventKey="fifth">History</NavLink>
-                //                 </NavItem>
-                //             </Nav>
-                //         </Col>
-                //         <Col sm="9">
-                //             <TabContent>
-                //                 <TabPane eventKey="first">
-                //                     {/* <LeaderboardTable/> */}
-                //                     <List>
-                //                         {users.map(user => (
-                //                             <ListItem key={user._id}>
-                //                                 <Link to={"/user/" + user._id}>
-                //                                 <strong>
-                //                                     {user.username} by {user.score}
-                //                                 </strong>
-                //                                 </Link>
-                //                             </ListItem>
-                //                         ))}
-                //                     </List>
-                //                 </TabPane>
-                //                 <TabPane eventKey="second">
-                //                     <LeaderboardDifficulty />
-                //                         {/* <LeaderboardTable /> */}
-                //                 </TabPane>
-                //                 <TabPane eventKey="third">
-                //                     <LeaderboardDifficulty />
-                //                     {/* <LeaderboardTable/> */}
-                //                 </TabPane>
-                //                 <TabPane eventKey="fourth">
-                //                     <LeaderboardDifficulty />
-                //                     {/* <LeaderboardTable/> */}
-                //                 </TabPane>
-                //                 <TabPane eventKey="fifth">
-                //                     <LeaderboardDifficulty />
-                //                     {/* <LeaderboardTable/> */}
-                //                 </TabPane>
-                //             </TabContent>
-                //         </Col>
-                //     </Row>
-                // </TabContainer>
-//         );
-// }
 
 export default LeaderboardMenu;

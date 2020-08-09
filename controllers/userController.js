@@ -1,7 +1,6 @@
 const db = require("../models");
 //const bcrypt = require("bcrypt")
 const { request, response } = require("express");
-const User = require("../models/user");
 
 module.exports = {
 
@@ -10,7 +9,7 @@ module.exports = {
     db.User
       .find(req.query) // find all
       .limit(10) // limit to 10 users
-      // .sort({ scores: -1 }) // sort them in descending order
+      .sort({ scores: -1 }) // sort them in descending order
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },

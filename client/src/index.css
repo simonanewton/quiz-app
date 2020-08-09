@@ -47,31 +47,6 @@ code {
   color: white !important;
 }
 
-.leaderboard-btn,
-.leaderboard-btn.active,
-.leaderboard-btn:disabled {
-  margin: 10px;
-  color: white;
-  background-color: orange;
-  border: 1px solid orange;
-  transition: ease-in-out .25s;
-}
-
-.leaderboard-btn:hover {
-  background-color: rgb(224, 189, 122);
-  border: 1px solid rgb(224, 189, 122);
-  color: white;
-}
-
-.leaderboard-btn.active {
-  color: orange !important;
-  border-color: orange !important;
-}
-
-.leaderboard-btn.focus {
-  box-shadow: none;
-}
-
 .center {
   max-width: 50%;
   margin: auto;
@@ -79,11 +54,70 @@ code {
 
 /* List Styling for Leaderboard */
 .list {
-  max-width: 500px;
+  max-width: 250px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 .background {
-  background-color: white;
-  max-width: 75%;
-  display: inline-block;
+  background-color: orange;
+  margin: auto !important;
+  width: 45%;
+  padding: 50px !important;
+  overflow: auto;
+  max-height: 60%;
+}
+
+.bg {
+  padding-top: 8%;
+}
+
+.title {
+  background-color: orange;
+  color: white;
+  font-weight: bolder;
+  margin: auto !important;
+  width: 45%;
+  max-height: 50%;
+  padding: 20px 50px 0px 50px;
+}
+
+i {
+  padding: 0px 20px;
+}
+
+/* SCROLL BAR  */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #ffd17d; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd17d; 
+}
+
+/* FOR PHONES */
+@media only screen and (max-width: 600px) {
+  .background {
+    width: 100%;
+  }
+  .list {
+    max-width: 50%;
+  }
+  .title {
+    width: 100%;
+  }
+  i {
+    display: none !important;
+  }
 }
