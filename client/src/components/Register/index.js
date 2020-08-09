@@ -1,5 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Container, Form, Col, Button, Row, Jumbotron, InputGroup } from "react-bootstrap"
+import { Link } from 'react-dom'
 import API from "../../utils/API"
 //import store from "store";
 import "./style.css";
@@ -11,28 +12,42 @@ class Register extends Component {
         this.state = {
             firstname: null,
             lastname: null,
-            email: null,
+            emailaddress: null,
             username: null,
-            password: null
+            password: null,
+            accountcreated: false
         };
     }
 
-    handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await API.saveUser(this.state);
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        const response = await API.createUser(
+            {
+                firstname:this.state.firstname,
+                lastname: this.state.lastname,
+                emailaddress: this.state.emailaddress,
+                username:this.state.username,
+                password:this.state.password
+            } 
+        )
         console.log(response);
-    }
+        // API.createUser(this.state)
+        // .then( res => {
+        //     console.log(res.data)
+        // }).catch(err => console.log(err))
+    };
 
     handleInputChange = (e) => {
         let value = e.target.value;
         const name = e.target.name;
-
         this.setState({ [name]: value });
     };
 
-    renderRegForm() {
+    renderRegForm = () => {
         return (
             <Form noValidate>
+                
                 <Form.Group as={Row} controlId="formFirstName">
                     <Form.Label column sm={2}>
                         First Name
@@ -73,7 +88,7 @@ class Register extends Component {
                         <Form.Control
                             type="email"
                             placeholder="Email"
-                            name="email"
+                            name="emailaddress"
                             onChange={this.handleInputChange}
                             required
                         />
@@ -125,13 +140,23 @@ class Register extends Component {
         );
     }
 
+    renderSignUpComplete = () => {
+        return (
+            <div>
+                <h1 className="my-3">Your account has been created!</h1>
+                <div className="d-flex justify-content-center">
+                    <Button as={Link} to="/quizzes" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Quizzes</Button>
+                    <Button as={Link} to="/leaderboard" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Leaderboard</Button>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <Container className="my-auto">
                 <Jumbotron className="px-5 py-4 m-0 text-center jumbo">
-                    <h1>Sign Up</h1>
-
-                    {this.renderRegForm()}
+                    {!this.state.accountcreated ? this.renderRegForm() : this.renderSignUpComplete()}
                 </Jumbotron>
             </Container>
         )

@@ -71,3 +71,19 @@ code {
 .leaderboard-btn.focus {
   box-shadow: none;
 }
+
+.center {
+  max-width: 50%;
+  margin: auto;
+}
+
+/* List Styling for Leaderboard */
+.list {
+  max-width: 500px;
+}
+
+.background {
+  background-color: white;
+  max-width: 75%;
+  display: inline-block;
+}
