@@ -91,12 +91,24 @@ code {
   width: 45%;
   padding: 50px !important;
   overflow: auto;
-  max-height: 50%;
+  max-height: 60%;
+}
+
+.bg {
+  padding-top: 8%;
 }
 
 h3 {
   color: white;
   font-weight: bolder;
+}
+
+.title {
+  background-color: orange;
+  margin: auto !important;
+  width: 45%;
+  max-height: 50%;
+  padding: 20px 50px 0px 50px;
 }
 
 /* SCROLL BAR  */
@@ -115,7 +127,7 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: orange; 
+  background: palegoldenrod; 
 }
 
 @media only screen and (max-width: 600px) {
@@ -124,5 +136,8 @@ h3 {
   }
   .list {
     max-width: 50%;
+  }
+  .title {
+    width: 100%;
   }
 }
