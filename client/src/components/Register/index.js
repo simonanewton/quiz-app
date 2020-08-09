@@ -19,25 +19,6 @@ class Register extends Component {
         };
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(this.state);
-        const response = await API.createUser(
-            {
-                firstname:this.state.firstname,
-                lastname: this.state.lastname,
-                emailaddress: this.state.emailaddress,
-                username:this.state.username,
-                password:this.state.password
-            } 
-        )
-        console.log(response);
-        // API.createUser(this.state)
-        // .then( res => {
-        //     console.log(res.data)
-        // }).catch(err => console.log(err))
-    };
-
     handleInputChange = (e) => {
         let value = e.target.value;
         const name = e.target.name;
@@ -143,7 +124,7 @@ class Register extends Component {
     renderSignUpComplete = () => {
         return (
             <div>
-                <h1 className="my-3">Your account has been created!</h1>
+                <h1 className="my-3">Welcome {this.state.username}! Your account has been created!</h1>
                 <div className="d-flex justify-content-center">
                     <Button as={Link} to="/quizzes" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Quizzes</Button>
                     <Button as={Link} to="/leaderboard" className="p-3 m-3 w-25" style={{ fontSize: "20px" }}>Leaderboard</Button>
@@ -151,6 +132,30 @@ class Register extends Component {
             </div>
         );
     }
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        const response = await API.createUser(
+            {
+                firstname:this.state.firstname,
+                lastname: this.state.lastname,
+                emailaddress: this.state.emailaddress,
+                username:this.state.username,
+                password:this.state.password
+            } 
+        )
+        console.log(response);
+
+        this.setState({accountcreated: true})
+            
+        this.renderSignUpComplete();
+        // API.createUser(this.state)
+        // .then( res => {
+        //     console.log(res.data)
+        // }).catch(err => console.log(err))
+    };
+
 
     render() {
         return (
