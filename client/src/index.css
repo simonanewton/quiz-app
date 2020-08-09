@@ -111,6 +111,10 @@ h3 {
   padding: 20px 50px 0px 50px;
 }
 
+i {
+  padding: 0px 20px;
+}
+
 /* SCROLL BAR  */
 ::-webkit-scrollbar {
   width: 20px;
