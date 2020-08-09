@@ -14,8 +14,6 @@ class LeaderboardMenu extends React.Component {
     }
 
     componentDidMount() {
-        console.log("yay!");
-
         API.getUsers(this.state.users)
             .then(res => {
                 console.log(res.data);
