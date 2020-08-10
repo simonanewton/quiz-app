@@ -35,13 +35,13 @@ class App extends Component {
 	// 		this.setState({ isLoading: false })
 	// 	}
 	// }
-	componentDidMount(){
-		this.getUsers()
+	componentDidMount = async () => {
+		await this.getUsers()
 	}
 
 	getUsers = async () => {
 		try {
-			const response = await api.getUsers()
+			const response = await api.getUser()
 			if(response.status === 401) this.props.history.push('/signin')
 			else this.setState({signedIn: true})
 		} catch(err){

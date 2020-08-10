@@ -8,9 +8,9 @@ router.post("/create", userController.create)
 
 router.post("/login",  passport.authenticate("local"), userController.login)
 
-router.use(authenticate);
-
 router.get("/", userController.findAll)
+
+router.use(authenticate);
  
 router.get('/logout', function(req, res){
     req.logout();
