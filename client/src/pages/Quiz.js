@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Jumbotron, Button } from 'react-bootstrap';
 import allQuestions from '../assets/questions';
 import QuizQuestions from '../components/QuizQuestions';
+import API from '../utils/API';
 import '../index.css';
 
 class Quiz extends Component {
@@ -36,20 +37,33 @@ class Quiz extends Component {
         }, 1000);
     }
 
-    finishQuiz = () => {
-        this.stopTimer();
-        this.setState({
-            score: this.state.score + this.state.timer,
-            isOver: true
-        });
-    }
-
     stopTimer = () => {
         clearInterval(this.timerInterval);
     }
 
     updateScore = () => {
         this.setState({ score: this.state.score + 10 });
+    }
+
+    finishQuiz = () => {
+        this.stopTimer();
+        this.setState({
+            score: this.state.score + this.state.timer,
+            isOver: true
+        });
+        // this.updateUserScore();
+    }
+
+    updateUserScore = async () => {
+        const { subject, level } = this.props.match.params;
+
+        const userId = null;
+        const currentUser = await API.getById(userId);
+
+        console.log(currentUser);
+
+        const currentHighscore = null;
+        if (this.state.score > currentHighscore) API.updateUserScore(userId, this.state.score, level, subject);
     }
 
     renderScore = () => {
