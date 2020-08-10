@@ -1,9 +1,35 @@
-.table {
-    margin-top: 10px;
-    color: orange;
-}
-
-/* increased table height */
-.background {
+/* List Styling for Leaderboard */
+.list {
+    max-width: 250px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .background {
+    background-color: orange;
+    margin: auto !important;
+    width: 45%;
+    padding: 50px !important;
+    overflow: auto;
+    max-height: 60%;
     height: 80vh;
-}
+  }
+  
+  .bg {
+    padding-top: 8%;
+  }
+  
+  .title {
+    background-color: orange;
+    color: white;
+    font-weight: bolder;
+    margin: auto !important;
+    width: 45%;
+    max-height: 50%;
+    padding: 20px 50px 0px 50px;
+  }
+  
+  i {
+    padding: 0px 20px;
+  }

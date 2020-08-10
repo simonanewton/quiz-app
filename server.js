@@ -3,7 +3,7 @@ const session = require('express-session');
 const passport = require("./config/passport");
 const mongoose = require("mongoose");
 const cors = require('cors');
-const url = "mongodb+srv://newuser123:nicole123@gtechproject3.lp7z3.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const url = "mongodb+srv://newuser123:nicole123@gtechproject3.lp7z3.mongodb.net/quizapp?retryWrites=true&w=majority";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
