@@ -2,7 +2,19 @@
 
 ## Description
 
-???
+QuizApp was created to provide a fun, easy way for kids to continue learning throughout school and when school is not in session.
+
+**Test Your Knowledge:**
+Choose what subject you want to take a quiz in, then choose your level of difficulty. Start your quiz and get points for answering correctly! The faster you’re able to finish a quiz, the more points you get added to your final score.
+
+**Compete With Friends:**
+Share your latest high score with friends through the leaderboard! Always showing the top 10 Quizzers and updated every time you check the page.
+
+## User Story
+
+As a student
+I want to take quizzes and test my skills against my friends
+so that I can continue learning and have fun
 
 ## Table of Contents
 

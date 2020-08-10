@@ -30,7 +30,7 @@ class LeaderboardMenu extends React.Component {
                 for (var i=0; i < res.data.length; i++) {
                     if (res.data[i].scores.length !== 0) {
                         scoreArray.push(res.data[i])
-                    }
+                    } 
                 }
 
                 console.log(scoreArray);
