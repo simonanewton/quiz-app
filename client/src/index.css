@@ -52,8 +52,6 @@ code {
   margin: auto;
 }
 
-
-
 /* SCROLL BAR  */
 ::-webkit-scrollbar {
   width: 20px;
@@ -73,18 +71,3 @@ code {
   background: #ffd17d; 
 }
 
-/* FOR PHONES */
-@media only screen and (max-width: 600px) {
-  .background {
-    width: 100%;
-  }
-  .list {
-    max-width: 50%;
-  }
-  .title {
-    width: 100%;
-  }
-  i {
-    display: none !important;
-  }
-}
