@@ -1,5 +1,4 @@
 const db = require("../models");
-//const bcrypt = require("bcrypt")
 const { request, response } = require("express");
 const passport = require('../config/passport')
 
@@ -29,13 +28,6 @@ module.exports = {
 			.create(req.body)
 			.then(data => res.redirect(307, "/api/user/login"))
 			.catch(err => res.status(422).json(err));
-
-  
-
-    
-    
-		
-		
 	},
 
 	updateScore: (req, res) => {
