@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Button, Form, Container, Jumbotron} from "react-bootstrap";
 import { Link } from "react-router-dom";
+import API from "../utils/API";
 
 
 class SignIn extends Component {
@@ -21,15 +22,13 @@ class SignIn extends Component {
     });
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = async event => {
 
     event.preventDefault();
-    // this.setState({
-    //   username: "",
-    //   password: ""
-    // });
-
-    console.log(this.state)
+    const { username, password } = this.state
+    if(!username.length || !password.length) return
+    const response = await API.loginUser({ username, password })
+    if(response.status === 200) this.props.history.push('/')
   };
 
   render() { return(

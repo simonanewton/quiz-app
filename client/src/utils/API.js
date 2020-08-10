@@ -20,11 +20,11 @@ export default {
 	},
 	// Adds a user to database
 	createUser: (userData) => {
-		return axios.post("/api/user", userData);
+		return axios.post("/api/user/create", userData);
 	},
 	// Authenticates user login
 	loginUser: (userData) => {
-		return axios.post("/api/signin/", userData);
+		return axios.post("/api/user/login", userData);
 	},
 	// Logs out the current user
 	logoutUser: () => {

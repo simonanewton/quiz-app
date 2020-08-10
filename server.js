@@ -20,21 +20,21 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use( (req, res, next) => {
-    console.log('req.session', req.session);
-    return next();
-  });
-
+        console.log('req.session', req.session);
+        return next();
+      });
+    app.use(require("./routes"));
+    
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
 //UNCOMMENT THIS WHEN READY TO USE ATLAS
-mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`))
+// mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`))
 
 // REMOVE THIS WHEN READY TO USE ATLAS
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizapp", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`));
+ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizapp", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`));
 
-app.use(require("./routes"));
 
 
 app.listen(PORT, () => {
