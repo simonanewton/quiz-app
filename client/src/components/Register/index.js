@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
 import API from '../../utils/API';
-// import store from 'store';
 import './style.css';
 
 class Register extends Component {

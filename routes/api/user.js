@@ -4,7 +4,6 @@ const userController = require("../../controllers/userController");
 const authenticate = require("../../config/authenticate");
 const passport = require('passport');
 
-
 router.post("/create", userController.create)
 
 router.post("/login",  passport.authenticate("local"), userController.login)

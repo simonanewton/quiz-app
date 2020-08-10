@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//sessions
+//session
 app.use(session({ secret: "study", resave: true, saveUninitialized: true }));
 
 app.use(passport.initialize());
