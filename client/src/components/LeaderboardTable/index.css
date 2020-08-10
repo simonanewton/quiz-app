@@ -2,3 +2,8 @@
     margin-top: 10px;
     color: orange;
 }
+
+/* increased table height */
+.background {
+    height: 80vh;
+}
