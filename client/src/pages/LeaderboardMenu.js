@@ -27,7 +27,6 @@ class LeaderboardMenu extends React.Component {
                 
                 let scoreArray = [];
 
-                // Start new array excluding users with no score data
                 for (var i=0; i < res.data.length; i++) {
                     if (res.data[i].scores.length !== 0) {
                         scoreArray.push(res.data[i])
