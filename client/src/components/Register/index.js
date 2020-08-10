@@ -13,6 +13,7 @@ class Register extends Component {
             emailaddress: null,
             username: null,
             password: null,
+            redirectTo: null
         }
     }
 
@@ -23,8 +24,8 @@ class Register extends Component {
 
     handleSubmit = async (event) => {
 		event.preventDefault();
-		console.log(this.state);
-		const response = await API.createUser(this.state);
+        const response = await API.createUser(this.state)
+        console.log(this.state);
 		console.log(response);
 		if (response.status === 200) this.props.handleSuccess();
 	};

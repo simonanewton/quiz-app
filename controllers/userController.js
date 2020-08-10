@@ -1,6 +1,7 @@
 const db = require("../models");
 //const bcrypt = require("bcrypt")
 const { request, response } = require("express");
+const passport = require('../config/passport')
 
 module.exports = {
 	// find all users by score, sort by ascending
@@ -22,12 +23,19 @@ module.exports = {
 	},
 
 	// creating new users/posting to json
-	create: (req, res) => {
-		console.log(req.body);
+	create: (req, res, next) => {
+		// console.log(req.body);
 		db.User
 			.create(req.body)
-			.then(data => res.json(data))
+			.then(data => res.redirect(307, "/api/user/login"))
 			.catch(err => res.status(422).json(err));
+
+  
+
+    
+    
+		
+		
 	},
 
 	updateScore: (req, res) => {
@@ -37,5 +45,11 @@ module.exports = {
 		// 	.update(req.body)
 		// 	.then(data => res.json(data))
 		// 	.catch(err => res.status(422).json(err));
+	},
+
+	login: async (req, res) => {
+		console.log(req)
+		if(req.user) res.json(res.user)
+		res.send(null)
 	}
 }
