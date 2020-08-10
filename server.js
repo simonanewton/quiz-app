@@ -1,12 +1,9 @@
 const express = require("express");
 const session = require('express-session');
-const dotenv = require("dotenv");
 const passport = require("./config/passport");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const url = "mongodb+srv://newuser123:nicole123@gtechproject3.lp7z3.mongodb.net/<dbname>?retryWrites=true&w=majority";
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;

@@ -13,14 +13,14 @@ function Header() {
             </Navbar.Brand>
 
             <ListGroup horizontal className="ml-auto">
-                {/* <ListGroup.Item action as={Link} to="/" className="text-nowrap">
+                <ListGroup.Item action as={Link} to="/" className="text-nowrap">
                     <span className="pr-2 menuBtn">Home</span>
                     <FontAwesomeIcon icon={faHome} className="icons" />
                 </ListGroup.Item>
                 <ListGroup.Item action as={Link} to="/settings" className="text-nowrap">
                     <span className="pr-2 menuBtn">Settings</span>
                     <FontAwesomeIcon icon={faCog} className="icons" />
-                </ListGroup.Item> */}
+                </ListGroup.Item>
                 <ListGroup.Item action as={Link} to="/signin" className="text-nowrap">
                     <span className="pr-2 menuBtn">Sign In</span>
                     <FontAwesomeIcon icon={faSignOutAlt} className="icons" />
