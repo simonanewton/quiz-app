@@ -12,7 +12,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "Simon Newton, Toni Davis, Nicole O'Bamsawin, Logan Hemphill",
+  "author": "Simon Newton, Toni Davis, Nicole O'Bomsawin, Logan Hemphill",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.7"
