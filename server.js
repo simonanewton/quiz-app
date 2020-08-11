@@ -27,9 +27,11 @@ app.use((req, res, next) => {
 
 app.use(routes);
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
-}
+app.use(express.static("client/build"));
+
+// if (process.env.NODE_ENV === "production") {
+	
+// }
 
 // UNCOMMENT THIS WHEN READY TO USE ATLAS
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log("Connected to Atlas Database"));
