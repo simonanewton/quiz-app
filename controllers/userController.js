@@ -1,6 +1,6 @@
 const db = require("../models");
-const { request, response } = require("express");
-const passport = require('../config/passport')
+// const { request, response } = require("express");
+// const passport = require('../config/passport');
 
 module.exports = {
 	// find all users by score, sort by ascending
@@ -22,8 +22,7 @@ module.exports = {
 	},
 
 	// creating new users/posting to json
-	create: (req, res, next) => {
-		// console.log(req.body);
+	create: (req, res) => {
 		db.User
 			.create(req.body)
 			.then(data => res.redirect(307, "/api/user/login"))
@@ -31,17 +30,14 @@ module.exports = {
 	},
 
 	updateScore: (req, res) => {
-		console.log(req.body);
-		res.status(200);
-		// db.User
-		// 	.update(req.body)
-		// 	.then(data => res.json(data))
-		// 	.catch(err => res.status(422).json(err));
+		db.User
+			.updateOne({ _id: req.body.id }, { $push: { scores: req.body.score } }, { upsert: true })
+			.then(data => res.json(data))
+			.catch(err => res.status(422).json(err));
 	},
 
 	login: async (req, res) => {
-		console.log(req)
-		if(req.user) res.json(res.user)
-		res.send(null)
+		if (req.user) res.json(res.user);
+		res.send(null);
 	}
 }

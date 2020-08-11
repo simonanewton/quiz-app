@@ -30,6 +30,10 @@ class Quiz extends Component {
         this.startTimer();
     }
 
+    componentWillUnmount() {
+        this.stopTimer();
+    }
+
     startTimer = () => {
         this.timerInterval = setInterval(() => {
             if (this.state.timer > 0) this.setState({ timer: this.state.timer - 1 });
@@ -51,19 +55,24 @@ class Quiz extends Component {
             score: this.state.score + this.state.timer,
             isOver: true
         });
-        // this.updateUserScore();
+        this.updateUserScore();
     }
 
     updateUserScore = async () => {
         const { subject, level } = this.props.match.params;
+        const user = (await API.getUserData()).data;
 
-        const userId = null;
-        const currentUser = await API.getById(userId);
+        const currentHighscore = user.scores.find(score => score.subject === subject);
+        const userData = {
+            id: user._id,
+            score: {
+                score: this.state.score,
+                difficulty: parseInt(level),
+                subject: subject
+            }
+        }
 
-        console.log(currentUser);
-
-        const currentHighscore = null;
-        if (this.state.score > currentHighscore) API.updateUserScore(userId, this.state.score, level, subject);
+        if (!currentHighscore || this.state.score > currentHighscore) API.updateUserScore(user._id, userData);
     }
 
     renderScore = () => {

@@ -30,8 +30,12 @@ export default {
 	logoutUser: () => {
 		return axios.post("/api/signout");
 	},
+	// Gets data for currently logged in user
+	getUserData: () => {
+		return axios.get("/api/user/data");
+	},
 	// Updates the users score with a new highscore
-	updateUserScore: (id, score, difficulty, subject) => {
-		return axios.put("/api/user/" + id, (score, difficulty, subject));
+	updateUserScore: (id, userScore) => {
+		return axios.put("/api/user/" + id, userScore);
 	}
 };
