@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Navbar, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCog, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-// import api from "../../utils/API";
 import "./index.css";
 
 function Header({ isSignedIn }) {
@@ -33,4 +32,5 @@ function Header({ isSignedIn }) {
     </Navbar>
   );
 }
+
 export default Header;

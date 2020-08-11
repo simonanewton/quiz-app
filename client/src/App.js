@@ -20,7 +20,7 @@ class App extends Component {
 		}
 	}
 
-	// performLoadingTime = async() => {
+	// performLoadingTime = async () => {
 	// 	return new Promise((resolve) =>
 	// 		setTimeout(
 	// 			() => { resolve('result') },
@@ -37,19 +37,18 @@ class App extends Component {
 	// 	}
 	// }
 
-	componentDidMount = async () => {
-		await this.getUsers()
+	componentDidMount = () => {
+		this.getUsers();
 	}
 
 	getUsers = async () => {
 		try {
-			const response = await api.getUsers();
-			if (response.status === 401) this.props.history.push('/signin');
+			const response = await api.authenticate();
+			if (response.status === 401) this.props.history.push("/signin");
 			else this.setState({ signedIn: true });
 		} catch (err) {
 			console.log(err);
-			this.props.history.push('/signin');
-
+			this.props.history.push("/signin");
 		}
 	}
 

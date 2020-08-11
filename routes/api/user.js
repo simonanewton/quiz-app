@@ -8,9 +8,11 @@ router.post("/create", userController.create);
 
 router.post("/login", passport.authenticate("local"), userController.login);
 
-router.get("/", userController.findAll);
+router.get("/authenticate", authenticate);
 
 router.use(authenticate);
+
+router.get("/", userController.findAll);
 
 router.get("/logout", (req, res) => {
 	req.logout();

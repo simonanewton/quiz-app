@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 export default {
+	authenticate: () => {
+		return axios.get("/api/user/authenticate");
+	},
 	// Gets all saved users
 	getUsers: () => {
 		return axios.get("/api/user");
