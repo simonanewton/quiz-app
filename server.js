@@ -1,5 +1,5 @@
 const express = require("express");
-// const session = require('express-session');
+const session = require('express-session');
 const passport = require("./config/passport");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // session
-// app.use(session({ secret: "study", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "study", resave: true, saveUninitialized: true }));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // UNCOMMENT THIS WHEN READY TO USE ATLAS
-mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Database`))
+mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log("Connected to Atlas Database"));
 
 // REMOVE THIS WHEN READY TO USE ATLAS
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizapp", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
